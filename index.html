@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Hassan Ahlal | Géomètre-Topographe</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S06YPBJV04"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S06YPBJV04');
+    </script>
+</head>
+    
+<body>
+    <div class="overlay first"></div>
+    <div class="overlay second"></div>
+    <div class="overlay third"></div>
+
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo" id="logo-link" onclick="reloadWithAnimation()">
+                    <span class="logo-part1">Port</span><span class="logo-part2">folio</span>
+                </a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link">Accueil</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">Profil</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="#experiences" class="nav__link">Expériences</a></li>
+                    <li class="nav__item"><a href="https://ydaoui.github.io/MySiteWeb" class="nav__link" target="_blank" rel="noopener noreferrer">Site Web</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <ion-icon name="menu"></ion-icon>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main bd-grid">
+        <div class="home" id="home">
+            <div class="home__information">
+                <span class="home__pressent anime-text">Bonjour, Je m'appelle</span>
+                <h1 class="home__title name-animation">Hassan Ahlal</h1>
+                <span class="home__pressent anime-text">Je suis<br></span>
+                <span class="home__skill job-animation">Responsable Topographie</span>
+                
+                <div>
+                    <a href="./assets/cv/cv.pdf" download="HAhlal-CV.pdf" class="home__button anime-text">TÉLÉCHARGER CV</a>
+                </div>
+            </div>
+
+            <div class="home__img-container">
+                <div class="home__img-border"></div>
+                <img src="./assets/img/img1.png" alt="Portrait de Hassan Ahlal" class="home__img">
+            </div>
+
+            <div class="home__social">
+                <a href="https://www.linkedin.com/in/hassan-ahlal/" target="_blank" rel="noopener noreferrer">
+                    <ion-icon name="logo-linkedin" class="home__social-icon"></ion-icon>
+                </a>
+                <a href="https://github.com/YDaoui/YDaoui" target="_blank" rel="noopener noreferrer">
+                    <ion-icon name="logo-github" class="home__social-icon"></ion-icon>
+                </a>
+                <a href="https://ydaoui.github.io/MySiteWeb/" target="_blank" rel="noopener noreferrer">
+                    <ion-icon name="globe-outline" class="home__social-icon"></ion-icon>
+                </a>
+                <a href="mailto:Hassan.newyear@gmail.com" target="_blank">
+                    <ion-icon name="mail-outline" class="home__social-icon"></ion-icon>
+                </a>
+                <a href="tel:+212708504254">
+                    <ion-icon name="call-outline" class="home__social-icon"></ion-icon>
+                </a>
+            </div>
+        </div>
+
+        <section class="section" id="about">
+            <div class="bd-grid">
+                <h4 class="section-title anime-text">Hassan Ahlal</h4> 
+                <div class="about__content">
+                    <h3>Responsable des Travaux Topographiques</h3>
+                              
+                    <div class="about__description">
+                        <p>
+                            Géomètre-topographe expérimenté avec plus de 7 ans d'expertise dans les travaux publics, le génie civil et l'aménagement du territoire. Titulaire d'un <strong>Diplôme en Topographie</strong>, j'ai développé une solide maîtrise des levés topographiques, de l'implantation d'ouvrages complexes et du contrôle des plans d'exécution.
+                        </p>
+                        <p>
+                            Mon parcours m'a permis d'évoluer de technicien topographe à responsable des travaux topographiques, en assurant la coordination d'équipes sur des chantiers de grande envergure. J'ai approfondi l'utilisation des instruments de pointe (station totale, GPS RTK, scanners 3D) et le traitement des données avec les logiciels spécialisés.
+                        </p>
+                        <p>
+                            Spécialisé dans la gestion de projets de construction, je garantis la précision métrique des implantations et le respect strict des normes techniques. Mon approche combine rigueur technique, anticipation des contraintes terrain et collaboration étroite avec les ingénieurs et conducteurs de travaux pour assurer la réussite des projets.
+                        </p>
+                    </div>
+
+                    <div class="social-badges">
+                        <a href="https://www.linkedin.com/in/hassan-ahlal/" target="_blank" rel="noopener noreferrer">
+                            <img src="https://img.shields.io/badge/LinkedIn-Profil_Professionnel-0077B5?logo=linkedin" alt="Profil LinkedIn">
+                        </a>
+                        <a href="mailto:Hassan.newyear@gmail.com">
+                            <img src="https://img.shields.io/badge/Email-Me_contacter-D14836?logo=gmail" alt="Contact Email">
+                        </a>
+                        <a href="https://github.com/YDaoui" target="_blank" rel="noopener noreferrer">
+                            <img src="https://img.shields.io/badge/GitHub-Projets_Techniques-181717?logo=github" alt="Profil GitHub">
+                        </a>
+                        <a href="https://ydaoui.github.io/MySiteWeb" target="_blank" rel="noopener noreferrer">
+                            <img src="https://img.shields.io/badge/Site Web-Portfolio_Complet-24292E?logo=githubpages" alt="Mon Site Web">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="services">
+            <div class="bd-grid">
+                <h2 class="section-title anime-text">Mes Services</h2>
+                <div class="services__grid">
+            
+                    <div class="service-card">
+                        <div class="service-header" onclick="toggleServiceDetails('topo-details')">
+                            <ion-icon name="location-outline"></ion-icon>
+                            <h3>Levés Topographiques</h3>
+                            <ion-icon name="chevron-down-outline" class="service-arrow"></ion-icon>
+                        </div>
+                        <p class="service-brief">Levés de précision pour tous types de projets</p>
+                        
+                        <div id="topo-details" class="service-details">
+                            <ul>
+                                <li><strong>Topographie classique</strong> : Nivellement, polygonation, implantation</li>
+                                <li><strong>Géoréférencement</strong> : Coordonnées précises avec GPS RTK</li>
+                                <li><strong>Plans de situation</strong> : Plans topographiques détaillés</li>
+                                <li><strong>Relevés altimétriques</strong> : Courbes de niveau, profils en long et en travers</li>
+                            </ul>
+                            <div class="service-tech">
+                                <span>Équipements :</span> Stations totales · GPS RTK · Niveaux numériques · Scanners 3D
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="service-card">
+                        <div class="service-header" onclick="toggleServiceDetails('implantation-details')">
+                            <ion-icon name="construct-outline"></ion-icon>
+                            <h3>Implantation de Chantier</h3>
+                            <ion-icon name="chevron-down-outline" class="service-arrow"></ion-icon>
+                        </div>
+                        <p class="service-brief">Implantation précise des ouvrages et infrastructures</p>
+                        
+                        <div id="implantation-details" class="service-details">
+                            <ul>
+                                <li><strong>Implantation d'ouvrages</strong> : Bâtiments, routes, ponts, réseaux</li>
+                                <li><strong>Calage altimétrique</strong> : Nivellement de précision</li>
+                                <li><strong>Réglage de machines</strong> : Guidage de pelles, bulldozers, finisseurs</li>
+                                <li><strong>Contrôle géométrique</strong> : Vérification des implantations</li>
+                            </ul>
+                            <div class="service-tech">
+                                <span>Techniques :</span> Implantation par coordonnées · Piquetage · Balisage · Mire
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="service-card">
+                        <div class="service-header" onclick="toggleServiceDetails('suivi-details')">
+                            <ion-icon name="analytics-outline"></ion-icon>
+                            <h3>Suivi et Contrôle des Travaux</h3>
+                            <ion-icon name="chevron-down-outline" class="service-arrow"></ion-icon>
+                        </div>
+                        <p class="service-brief">Suivi en temps réel et contrôle qualité des travaux</p>
+                        
+                        <div id="suivi-details" class="service-details">
+                            <ul>
+                                <li><strong>Contrôle d'exécution</strong> : Vérification conforme aux plans</li>
+                                <strong>Métrologie</strong> : Mesures de déformation et tassement</li>
+                                <li><strong>Réception des travaux</strong> : Vérifications finales</li>
+                                <li><strong>Reporting</strong> : Rapports techniques détaillés</li>
+                            </ul>
+                            <div class="service-tech">
+                                <span>Outils :</span> Topométrie · Photogrammétrie · Lasergrammétrie
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="service-card">
+                        <div class="service-header" onclick="toggleServiceDetails('etude-details')">
+                            <ion-icon name="document-text-outline"></ion-icon>
+                            <h3>Études Techniques</h3>
+                            <ion-icon name="chevron-down-outline" class="service-arrow"></ion-icon>
+                        </div>
+                        <p class="service-brief">Études préalables et assistance technique</p>
+                        
+                        <div id="etude-details" class="service-details">
+                            <ul>
+                                <li><strong>Avant-projets</strong> : Études de faisabilité topographique</li>
+                                <li><strong>Métrés</strong> : Calculs de cubatures et de surfaces</li>
+                                <li><strong>Plans d'exécution</strong> : Réalisation et vérification</li>
+                                <li><strong>Expertises</strong> : Constatations et diagnostics</li>
+                            </ul>
+                            <div class="service-tech">
+                                <span>Logiciels :</span> AutoCAD Civil 3D · Covadis · MicroStation · QGIS
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="service-card">
+                        <div class="service-header" onclick="toggleServiceDetails('formation-details')">
+                            <ion-icon name="school-outline"></ion-icon>
+                            <h3>Formation & Conseil</h3>
+                            <ion-icon name="chevron-down-outline" class="service-arrow"></ion-icon>
+                        </div>
+                        <p class="service-brief">Transmission de compétences techniques</p>
+                        
+                        <div id="formation-details" class="service-details">
+                            <ul>
+                                <li><strong>Formation terrain</strong> : Utilisation d'équipements topographiques</li>
+                                <li><strong>Conseil technique</strong> : Optimisation des processus topographiques</li>
+                                <li><strong>Assistance logicielle</strong> : Formation aux logiciels spécialisés</li>
+                                <li><strong>Normes et réglementations</strong> : Mise à jour des pratiques</li>
+                            </ul>
+                            <div class="service-tech">
+                                <span>Domaines :</span> Topographie · Géomatique · BIM · SIG
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="service-card">
+                        <div class="service-header" onclick="toggleServiceDetails('management-details')">
+                            <ion-icon name="people-outline"></ion-icon>
+                            <h3>Management d'Équipe</h3>
+                            <ion-icon name="chevron-down-outline" class="service-arrow"></ion-icon>
+                        </div>
+                        <p class="service-brief">Encadrement et coordination d'équipes topographiques</p>
+                        
+                        <div id="management-details" class="service-details">
+                            <ul>
+                                <li><strong>Gestion d'équipe</strong> : Planning, répartition des tâches</li>
+                                <li><strong>Coordination chantier</strong> : Interface avec les autres corps de métier</li>
+                                <li><strong>Optimisation des ressources</strong> : Matériel et personnel</li>
+                                <li><strong>Sécurité</strong> : Respect des règles de sécurité sur chantier</li>
+                            </ul>
+                            <div class="service-tech">
+                                <span>Compétences :</span> Gestion de projet · Communication · Organisation
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="experiences">
+            <div class="bd-grid">
+                <h2 class="section-title anime-text">Expériences Professionnelles</h2>
+
+                <div class="experience-container">
+                   
+                    <div class="experience-card">
+                        <div class="experience-card-header" onclick="toggleExperienceDetails('vinci-details')">
+                            <div class="company-logo">
+                                <img src="./assets/img/vinci_logo.jpeg" alt="VINCI Construction">
+                            </div>
+                            <div class="experience-title">
+                                <h3>Responsable des Travaux Topographiques</h3>
+                                <p>VINCI Construction</p>
+                            </div>
+                            <ion-icon name="chevron-down-outline" class="experience-arrow"></ion-icon>
+                        </div>
+                        
+                        <div id="vinci-details" class="experience-card-details">
+                            <div class="experience-meta">
+                                <span class="experience-date">Mars 2025 - Aujourd'hui</span>
+                                <span class="experience-location">Safi, Maroc · Sur site</span>
+                            </div>
+                            
+                            <div class="experience-description">
+                                <p>Encadrement et coordination des équipes topographiques sur des projets de grande envergure. Responsable de la qualité des levés et implantations.</p>
+                                <ul>
+                                    <li>Management d'une équipe de 5 topographes</li>
+                                    <li>Supervision des levés topographiques pour projets routiers</li>
+                                    <li>Contrôle qualité des implantations d'ouvrages d'art</li>
+                                    <li>Interface technique avec les ingénieurs projet</li>
+                                    <li>Optimisation des processus topographiques</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tech-tags">
+                                <span class="tech-tag" data-tech="gps">
+                                    <ion-icon name="navigate-outline"></ion-icon> GPS RTK
+                                </span>
+                                <span class="tech-tag" data-tech="station">
+                                    <ion-icon name="speedometer-outline"></ion-icon> Stations Totales
+                                </span>
+                                <span class="tech-tag" data-tech="civil3d">
+                                    <ion-icon name="cube-outline"></ion-icon> Civil 3D
+                                </span>
+                                <span class="tech-tag" data-tech="management">
+                                    <ion-icon name="people-outline"></ion-icon> Management
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-card">
+                        <div class="experience-card-header" onclick="toggleExperienceDetails('atner-details')">
+                            <div class="company-logo">
+                                <img src="./assets/img/atner_logo.jpeg" alt="ATNER">
+                            </div>
+                            <div class="experience-title">
+                                <h3>Technicien Géomètre Topographe</h3>
+                                <p>ATNER</p>
+                            </div>
+                            <ion-icon name="chevron-down-outline" class="experience-arrow"></ion-icon>
+                        </div>
+                        
+                        <div id="atner-details" class="experience-card-details">
+                            <div class="experience-meta">
+                                <span class="experience-date">Nov 2023 - Mars 2025 · 1 an 5 mois</span>
+                                <span class="experience-location">Azemmour, Maroc · Sur site</span>
+                            </div>
+                            
+                            <div class="experience-description">
+                                <p>Réalisation de levés topographiques pour projets d'aménagement urbain et infrastructures. Participation à des projets de voirie et réseaux divers.</p>
+                                <ul>
+                                    <li>Levés topographiques pour réseaux AEP et assainissement</li>
+                                    <li>Implantation de voiries et espaces publics</li>
+                                    <li>Calculs de cubatures pour terrassements</li>
+                                    <li>Réalisation de plans de situation détaillés</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tech-tags">
+                                <span class="tech-tag" data-tech="topographie">
+                                    <ion-icon name="map-outline"></ion-icon> Topographie
+                                </span>
+                                <span class="tech-tag" data-tech="covadis">
+                                    <ion-icon name="desktop-outline"></ion-icon> Covadis
+                                </span>
+                                <span class="tech-tag" data-tech="nivellement">
+                                    <ion-icon name="trending-up-outline"></ion-icon> Nivellement
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-card">
+                        <div class="experience-card-header" onclick="toggleExperienceDetails('generale-details')">
+                            <div class="company-logo">
+                                <img src="./assets/img/generale_mines_logo.jpeg" alt="LA GENERALE DES MINES ET CARRIERES">
+                            </div>
+                            <div class="experience-title">
+                                <h3>Technicien Géomètre Topographe Projeteur</h3>
+                                <p>LA GENERALE DES MINES ET CARRIERES</p>
+                            </div>
+                            <ion-icon name="chevron-down-outline" class="experience-arrow"></ion-icon>
+                        </div>
+                        
+                        <div id="generale-details" class="experience-card-details">
+                            <div class="experience-meta">
+                                <span class="experience-date">Oct 2022 - Oct 2023 · 1 an 1 mois</span>
+                                <span class="experience-location">Rabat, Maroc · Sur site</span>
+                            </div>
+                            
+                            <div class="experience-description">
+                                <p>Topographie minière et carrières. Levés pour exploitation de ressources minérales et suivi des excavations.</p>
+                                <ul>
+                                    <li>Levés de carrières et mines à ciel ouvert</li>
+                                    <li>Calculs de réserves et cubatures</li>
+                                    <li>Suivi des fronts de taille</li>
+                                    <li>Établissement de profils d'exploitation</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tech-tags">
+                                <span class="tech-tag" data-tech="mines">
+                                    <ion-icon name="hammer-outline"></ion-icon> Topographie Minière
+                                </span>
+                                <span class="tech-tag" data-tech="cubatures">
+                                    <ion-icon name="calculator-outline"></ion-icon> Cubatures
+                                </span>
+                                <span class="tech-tag" data-tech="surpac">
+                                    <ion-icon name="layers-outline"></ion-icon> Surpac
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-card">
+                        <div class="experience-card-header" onclick="toggleExperienceDetails('willemen-details')">
+                            <div class="company-logo">
+                                <img src="./assets/img/willemen_logo.jpeg" alt="Willemen Groep">
+                            </div>
+                            <div class="experience-title">
+                                <h3>Technicien Géomètre Topographe</h3>
+                                <p>Willemen Groep</p>
+                            </div>
+                            <ion-icon name="chevron-down-outline" class="experience-arrow"></ion-icon>
+                        </div>
+                        
+                        <div id="willemen-details" class="experience-card-details">
+                            <div class="experience-meta">
+                                <span class="experience-date">Fév 2022 - Oct 2022 · 9 mois</span>
+                                <span class="experience-location">Tanger, Maroc · Sur site</span>
+                            </div>
+                            
+                            <div class="experience-description">
+                                <p>Travaux topographiques pour projets de construction. Participation à des chantiers de bâtiment et génie civil.</p>
+                                <ul>
+                                    <li>Implantation de bâtiments et infrastructures</li>
+                                    <li>Contrôle des plans d'exécution</li>
+                                    <li>Relevés de façades et structures existantes</li>
+                                    <li>Assistance au métreur</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tech-tags">
+                                <span class="tech-tag" data-tech="batiment">
+                                    <ion-icon name="business-outline"></ion-icon> Bâtiment
+                                </span>
+                                <span class="tech-tag" data-tech="autocad">
+                                    <ion-icon name="pencil-outline"></ion-icon> AutoCAD
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-card">
+                        <div class="experience-card-header" onclick="toggleExperienceDetails('kymg-details')">
+                            <div class="company-logo">
+                                <img src="./assets/img/kymg_logo.jpeg" alt="KYMG TRAVAUX">
+                            </div>
+                            <div class="experience-title">
+                                <h3>Technicien Géomètre Topographe Projeteur</h3>
+                                <p>KYMG TRAVAUX</p>
+                            </div>
+                            <ion-icon name="chevron-down-outline" class="experience-arrow"></ion-icon>
+                        </div>
+                        
+                        <div id="kymg-details" class="experience-card-details">
+                            <div class="experience-meta">
+                                <span class="experience-date">Sept 2019 - Fév 2022 · 2 ans 6 mois</span>
+                                <span class="experience-location">Béni Mellal, Maroc · Sur site</span>
+                            </div>
+                            
+                            <div class="experience-description">
+                                <p>Topographie pour travaux publics et aménagements urbains. Polyvalence sur différents types de projets.</p>
+                                <ul>
+                                    <li>Projets de voirie et réseaux divers</li>
+                                    <li>Aménagements urbains et espaces verts</li>
+                                    <li>Plans topographiques pour études préalables</li>
+                                    <li>Métrés et estimations quantitatives</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tech-tags">
+                                <span class="tech-tag" data-tech="voirie">
+                                    <ion-icon name="road-outline"></ion-icon> Voirie
+                                </span>
+                                <span class="tech-tag" data-tech="rd">
+                                    <ion-icon name="git-network-outline"></ion-icon> Réseaux Divers
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-card">
+                        <div class="experience-card-header" onclick="toggleExperienceDetails('armacon-details')">
+                            <div class="company-logo">
+                                <img src="./assets/img/armacon_logo.jpeg" alt="ARMACON INGENIERIE">
+                            </div>
+                            <div class="experience-title">
+                                <h3>Technicien Géomètre Topographe</h3>
+                                <p>ARMACON INGENIERIE</p>
+                            </div>
+                            <ion-icon name="chevron-down-outline" class="experience-arrow"></ion-icon>
+                        </div>
+                        
+                        <div id="armacon-details" class="experience-card-details">
+                            <div class="experience-meta">
+                                <span class="experience-date">Juil 2018 - Sept 2019 · 1 an 3 mois</span>
+                                <span class="experience-location">Béni Mellal, Maroc · Hybride</span>
+                            </div>
+                            
+                            <div class="experience-description">
+                                <p>Bureau d'études techniques. Réalisation de plans topographiques et assistance aux ingénieurs.</p>
+                                <ul>
+                                    <li>Levés topographiques pour études techniques</li>
+                                    <li>Réalisation de plans d'exécution</li>
+                                    <li>Assistance aux ingénieurs d'études</li>
+                                    <li>Numérisation et mise en plan</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tech-tags">
+                                <span class="tech-tag" data-tech="bureau">
+                                    <ion-icon name="desktop-outline"></ion-icon> Bureau d'Études
+                                </span>
+                                <span class="tech-tag" data-tech="microstation">
+                                    <ion-icon name="hardware-chip-outline"></ion-icon> MicroStation
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-card">
+                        <div class="experience-card-header" onclick="toggleExperienceDetails('dpetle-details')">
+                            <div class="company-logo">
+                                <img src="./assets/img/dpetle_logo.jpeg" alt="Direction Provinciale d'El Jadida">
+                            </div>
+                            <div class="experience-title">
+                                <h3>Stage Technician</h3>
+                                <p>DIRECTION PROVINCIALE DE L'ÉQUIPEMENT D'EL JADIDA</p>
+                            </div>
+                            <ion-icon name="chevron-down-outline" class="experience-arrow"></ion-icon>
+                        </div>
+                        
+                        <div id="dpetle-details" class="experience-card-details">
+                            <div class="experience-meta">
+                                <span class="experience-date">Juin 2017 - Oct 2017 · 5 mois</span>
+                                <span class="experience-location">El Jadida, Maroc · Hybride</span>
+                            </div>
+                            
+                            <div class="experience-description">
+                                <p>Stage de fin d'études. Initiation aux missions topographiques dans le secteur public.</p>
+                                <ul>
+                                    <li>Participation à des levés pour projets publics</li>
+                                    <li>Assistance aux géomètres experts</li>
+                                    <li>Découverte des procédures administratives</li>
+                                    <li>Réalisation de rapports techniques</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tech-tags">
+                                <span class="tech-tag" data-tech="stage">
+                                    <ion-icon name="school-outline"></ion-icon> Stage
+                                </span>
+                                <span class="tech-tag" data-tech="public">
+                                    <ion-icon name="shield-checkmark-outline"></ion-icon> Secteur Public
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="bd-grid">
+                <h2 class="section-title anime-text">Contactez-moi</h2>
+                
+                <div class="contact__container">
+                    <div class="contact__info">
+                        <h3 class="contact__subtitle">Collaborons ensemble</h3>
+                        <p class="contact__text">Je suis disponible pour discuter de vos projets de topographie, répondre à vos questions techniques ou explorer de nouvelles opportunités professionnelles.</p>
+                        
+                        <div class="contact__details">
+                            <div class="contact__detail">
+                                <ion-icon name="mail-outline" class="contact__icon"></ion-icon>
+                                <a href="mailto:Hassan.newyear@gmail.com" class="contact__link">Hassan.newyear@gmail.com</a>
+                            </div>
+                            <div class="contact__detail">
+                                <ion-icon name="call-outline" class="contact__icon"></ion-icon>
+                                <span>+212708504254</span>
+                            </div>
+                            <div class="contact__detail">
+                                <ion-icon name="location-outline" class="contact__icon"></ion-icon>
+                                <span>Safi, Maroc (Mobile sur tout le territoire)</span>
+                            </div>
+                            <div class="contact__detail">
+                                <ion-icon name="calendar-outline" class="contact__icon"></ion-icon>
+                                <span>Disponibilité : Immédiate</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact__social">
+                            <a href="https://www.linkedin.com/in/hassan-ahlal/" class="contact__social-link" aria-label="LinkedIn">
+                                <ion-icon name="logo-linkedin"></ion-icon>
+                            </a>
+                            <a href="https://github.com/YDaoui/YDaoui" class="contact__social-link" aria-label="GitHub">
+                                <ion-icon name="logo-github"></ion-icon>
+                            </a>
+                            <a href="https://ydaoui.github.io/MySiteWeb/" class="contact__social-link" aria-label="Site Web">
+                                <ion-icon name="globe-outline"></ion-icon>
+                            </a>
+                        </div>
+                    </div>
+
+                    <form id="contactForm" class="contact__form contact-form" 
+                          action="https://formsubmit.co/Hassan.newyear@gmail.com" 
+                          method="POST"
+                          enctype="multipart/form-data">
+                        
+                        <input type="hidden" name="_subject" value="Nouveau message portfolio topographe">
+                        <input type="hidden" name="_autoresponse" value="Merci pour votre message! Je vous répondrai sous 48h.">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://ydaoui.github.io/?success=true">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="text" name="_honey" style="display:none">
+
+                        <div class="form__group">
+                            <input type="text" name="Nom" id="name" class="contact__input" required>
+                            <label for="name" class="form__label">Votre nom complet</label>
+                        </div>
+                        
+                        <div class="form__group">
+                            <input type="email" name="Email" id="email" class="contact__input" required>
+                            <label for="email" class="form__label">Votre email professionnel</label>
+                        </div>
+                        
+                        <div class="form__group">
+                            <input type="text" name="Objet" id="subject" class="contact__input" required>
+                            <label for="subject" class="form__label">Objet du message</label>
+                        </div>
+                        
+                        <div class="form__group">
+                            <textarea name="Message" id="message" rows="5" class="contact__input contact__textarea" required></textarea>
+                            <label for="message" class="form__label">Décrivez votre projet ou demande</label>
+                        </div>
+                        
+                        <div class="form__footer">
+                            <button type="submit" class="contact__button">
+                                <span>Envoyer le message</span>
+                                <ion-icon name="send-outline" class="button__icon"></ion-icon>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <div id="successPopup" class="success-popup">
+            <div class="popup-content">
+                <span class="close-popup-btn">&times;</span>
+                <ion-icon name="checkmark-circle" class="popup-icon"></ion-icon>
+                <h3>Message envoyé avec succès!</h3>
+                <p>Merci pour votre message. Je vous répondrai dans les plus brefs délais.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
