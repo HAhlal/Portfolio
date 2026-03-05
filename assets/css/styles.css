@@ -1342,3 +1342,423 @@ img {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary-color);
 }
+/* ================================================
+   PROJECTS SECTION
+   À coller à la fin de styles.css
+   ================================================ */
+
+/* ── Filtres ─────────────────────────────────── */
+.projects__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    padding: .5rem 1.4rem;
+    border: 1px solid var(--primary-dark);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--gray-medium);
+    font-family: 'Poppins', sans-serif;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: var(--primary-light);
+}
+
+.filter-btn.active {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border-color: transparent;
+    color: var(--white-color);
+    box-shadow: 0 4px 15px rgba(46, 139, 87, .3);
+}
+
+/* ── Grille ──────────────────────────────────── */
+.projects__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+/* ── Carte ───────────────────────────────────── */
+.project-card {
+    background: var(--black-color-lighter);
+    border: 1px solid var(--primary-dark);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all .3s ease;
+    box-shadow: 0 5px 15px rgba(46, 139, 87, .08);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 30px rgba(46, 139, 87, .2);
+}
+
+/* image wrapper */
+.project-card__img-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: var(--black-color);
+}
+
+.project-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s ease;
+    filter: grayscale(10%) contrast(110%);
+    max-width: 100%;
+}
+
+.project-card:hover .project-card__img {
+    transform: scale(1.06);
+    filter: grayscale(0%) contrast(115%);
+}
+
+/* overlay */
+.project-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 10, .6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.project-card:hover .project-card__overlay {
+    opacity: 1;
+}
+
+/* bouton zoom */
+.project-card__zoom {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .25s;
+}
+
+.project-card__zoom:hover {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border-color: transparent;
+    color: var(--white-color);
+    transform: scale(1.1);
+}
+
+/* badge catégorie */
+.project-card__category {
+    position: absolute;
+    top: .75rem;
+    left: .75rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--white-color);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: .25rem .75rem;
+    border-radius: 4px;
+}
+
+/* body carte */
+.project-card__body {
+    padding: 1.4rem;
+}
+
+.project-card__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white-color);
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    line-height: 1.35;
+}
+
+.project-card__desc {
+    font-size: .85rem;
+    color: var(--gray-light);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+/* tags techno */
+.project-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-bottom: 1rem;
+}
+
+.project-card__tags span {
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    padding: .2rem .65rem;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background: rgba(46, 139, 87, .08);
+    transition: all .3s;
+}
+
+.project-card:hover .project-card__tags span {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background: rgba(255, 165, 0, .08);
+}
+
+/* meta (date + lieu) */
+.project-card__meta {
+    display: flex;
+    gap: 1.2rem;
+    font-size: .78rem;
+    color: var(--gray-medium);
+    border-top: 1px solid var(--primary-dark);
+    padding-top: .75rem;
+}
+
+.project-card__meta span {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+
+.project-card__meta ion-icon {
+    color: var(--primary-color);
+    font-size: .95rem;
+}
+
+/* carte cachée par filtre */
+.project-card.hidden {
+    display: none;
+}
+
+/* ── Modal lightbox ──────────────────────────── */
+.project-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.project-modal.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.project-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 10, .92);
+    backdrop-filter: blur(6px);
+}
+
+.project-modal__box {
+    position: relative;
+    background: var(--black-color-lighter);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 800px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 0 40px rgba(46, 139, 87, .25);
+    transform: translateY(30px) scale(.97);
+    transition: transform .35s cubic-bezier(.22, 1, .36, 1);
+}
+
+.project-modal.open .project-modal__box {
+    transform: translateY(0) scale(1);
+}
+
+/* bouton fermer */
+.project-modal__close {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    border: 1px solid var(--primary-dark);
+    background: var(--black-color);
+    color: var(--gray-medium);
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .25s;
+}
+
+.project-modal__close:hover {
+    background: var(--warning-color);
+    border-color: var(--warning-color);
+    color: var(--white-color);
+}
+
+/* image modale */
+.project-modal__img-wrap {
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+    background: var(--black-color);
+}
+
+.project-modal__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    max-width: 100%;
+    filter: grayscale(10%) contrast(110%);
+}
+
+.project-modal__badge {
+    position: absolute;
+    bottom: .75rem;
+    left: .75rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--white-color);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: .25rem .75rem;
+    border-radius: 4px;
+}
+
+/* infos modale */
+.project-modal__info {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    overflow-y: auto;
+}
+
+.project-modal__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white-color);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    line-height: 1.35;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: .5rem;
+}
+
+.project-modal__desc {
+    font-size: .85rem;
+    color: var(--gray-light);
+    line-height: 1.7;
+}
+
+.project-modal__details {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.project-modal__detail {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-size: .82rem;
+    color: var(--gray-medium);
+}
+
+.project-modal__detail ion-icon {
+    color: var(--primary-color);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.project-modal__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    padding-top: .5rem;
+    border-top: 1px solid var(--primary-dark);
+}
+
+.project-modal__tags span {
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    padding: .2rem .65rem;
+    border-radius: 4px;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    background: rgba(255, 165, 0, .08);
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media screen and (max-width: 767px) {
+    .projects__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-modal__box {
+        grid-template-columns: 1fr;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .project-modal__img-wrap {
+        min-height: 200px;
+    }
+
+    .project-modal__info {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .projects__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .projects__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
