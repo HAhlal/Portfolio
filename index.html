@@ -45,6 +45,217 @@
             </div>
         </nav>
     </header>
+    <!-- ============================================================
+     SECTION PROJECTS — à insérer AVANT <section id="contact">
+     ============================================================ -->
+
+<section class="section" id="projects">
+    <div class="bd-grid">
+        <h2 class="section-title anime-text">Mes Projets</h2>
+
+        <!-- Filtres catégories -->
+        <div class="projects__filters">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="routier">Routier</button>
+            <button class="filter-btn" data-filter="batiment">Bâtiment</button>
+            <button class="filter-btn" data-filter="minier">Minier</button>
+            <button class="filter-btn" data-filter="urbain">Urbain</button>
+        </div>
+
+        <!-- Grille de projets -->
+        <div class="projects__grid" id="projects-grid">
+
+            <!-- Projet 1 -->
+            <div class="project-card" data-category="routier">
+                <div class="project-card__img-wrap">
+                    <img src="./assets/img/projects/project1.jpg" alt="Déviation RN Safi" class="project-card__img" loading="lazy">
+                    <div class="project-card__overlay">
+                        <button class="project-card__zoom" onclick="openProjectModal(0)" aria-label="Voir le projet">
+                            <ion-icon name="expand-outline"></ion-icon>
+                        </button>
+                    </div>
+                    <span class="project-card__category">Routier</span>
+                </div>
+                <div class="project-card__body">
+                    <h3 class="project-card__title">Déviation RN — Safi</h3>
+                    <p class="project-card__desc">Levés topographiques et implantation d'une déviation routière de 12 km. Profils en long/travers, cubatures.</p>
+                    <div class="project-card__tags">
+                        <span>GPS RTK</span>
+                        <span>Civil 3D</span>
+                        <span>Implantation</span>
+                    </div>
+                    <div class="project-card__meta">
+                        <span><ion-icon name="calendar-outline"></ion-icon> 2025</span>
+                        <span><ion-icon name="location-outline"></ion-icon> Safi</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 2 -->
+            <div class="project-card" data-category="batiment">
+                <div class="project-card__img-wrap">
+                    <img src="./assets/img/projects/project2.jpg" alt="Complexe Industriel Tanger" class="project-card__img" loading="lazy">
+                    <div class="project-card__overlay">
+                        <button class="project-card__zoom" onclick="openProjectModal(1)" aria-label="Voir le projet">
+                            <ion-icon name="expand-outline"></ion-icon>
+                        </button>
+                    </div>
+                    <span class="project-card__category">Bâtiment</span>
+                </div>
+                <div class="project-card__body">
+                    <h3 class="project-card__title">Complexe Industriel — Tanger</h3>
+                    <p class="project-card__desc">Implantation d'un complexe industriel 4 ha. Contrôle géométrique des structures, relevés de façades.</p>
+                    <div class="project-card__tags">
+                        <span>Station Totale</span>
+                        <span>AutoCAD</span>
+                        <span>Contrôle</span>
+                    </div>
+                    <div class="project-card__meta">
+                        <span><ion-icon name="calendar-outline"></ion-icon> 2022</span>
+                        <span><ion-icon name="location-outline"></ion-icon> Tanger</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 3 -->
+            <div class="project-card" data-category="minier">
+                <div class="project-card__img-wrap">
+                    <img src="./assets/img/projects/project3.jpg" alt="Carrière Calcaire Rabat" class="project-card__img" loading="lazy">
+                    <div class="project-card__overlay">
+                        <button class="project-card__zoom" onclick="openProjectModal(2)" aria-label="Voir le projet">
+                            <ion-icon name="expand-outline"></ion-icon>
+                        </button>
+                    </div>
+                    <span class="project-card__category">Minier</span>
+                </div>
+                <div class="project-card__body">
+                    <h3 class="project-card__title">Carrière Calcaire — Rabat</h3>
+                    <p class="project-card__desc">Topographie minière, calcul des réserves et suivi des fronts de taille. Modélisation 3D du gisement.</p>
+                    <div class="project-card__tags">
+                        <span>Surpac</span>
+                        <span>Cubatures</span>
+                        <span>3D</span>
+                    </div>
+                    <div class="project-card__meta">
+                        <span><ion-icon name="calendar-outline"></ion-icon> 2023</span>
+                        <span><ion-icon name="location-outline"></ion-icon> Rabat</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 4 -->
+            <div class="project-card" data-category="urbain">
+                <div class="project-card__img-wrap">
+                    <img src="./assets/img/projects/project4.jpg" alt="Réseau AEP Azemmour" class="project-card__img" loading="lazy">
+                    <div class="project-card__overlay">
+                        <button class="project-card__zoom" onclick="openProjectModal(3)" aria-label="Voir le projet">
+                            <ion-icon name="expand-outline"></ion-icon>
+                        </button>
+                    </div>
+                    <span class="project-card__category">Urbain</span>
+                </div>
+                <div class="project-card__body">
+                    <h3 class="project-card__title">Réseau AEP — Azemmour</h3>
+                    <p class="project-card__desc">Levés et implantation réseau d'eau potable sur 8 km de voiries urbaines. Plans de récolement finaux.</p>
+                    <div class="project-card__tags">
+                        <span>Covadis</span>
+                        <span>Réseaux</span>
+                        <span>Nivellement</span>
+                    </div>
+                    <div class="project-card__meta">
+                        <span><ion-icon name="calendar-outline"></ion-icon> 2024</span>
+                        <span><ion-icon name="location-outline"></ion-icon> Azemmour</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 5 -->
+            <div class="project-card" data-category="routier">
+                <div class="project-card__img-wrap">
+                    <img src="./assets/img/projects/project5.jpg" alt="Ouvrage d'art Béni Mellal" class="project-card__img" loading="lazy">
+                    <div class="project-card__overlay">
+                        <button class="project-card__zoom" onclick="openProjectModal(4)" aria-label="Voir le projet">
+                            <ion-icon name="expand-outline"></ion-icon>
+                        </button>
+                    </div>
+                    <span class="project-card__category">Routier</span>
+                </div>
+                <div class="project-card__body">
+                    <h3 class="project-card__title">Ouvrage d'Art — Béni Mellal</h3>
+                    <p class="project-card__desc">Implantation et contrôle géométrique d'un pont à poutres préfabriquées. Calage altimétrique de précision.</p>
+                    <div class="project-card__tags">
+                        <span>Précision</span>
+                        <span>Nivellement</span>
+                        <span>Piquetage</span>
+                    </div>
+                    <div class="project-card__meta">
+                        <span><ion-icon name="calendar-outline"></ion-icon> 2021</span>
+                        <span><ion-icon name="location-outline"></ion-icon> Béni Mellal</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 6 -->
+            <div class="project-card" data-category="urbain">
+                <div class="project-card__img-wrap">
+                    <img src="./assets/img/projects/project6.jpg" alt="Aménagement Place Publique" class="project-card__img" loading="lazy">
+                    <div class="project-card__overlay">
+                        <button class="project-card__zoom" onclick="openProjectModal(5)" aria-label="Voir le projet">
+                            <ion-icon name="expand-outline"></ion-icon>
+                        </button>
+                    </div>
+                    <span class="project-card__category">Urbain</span>
+                </div>
+                <div class="project-card__body">
+                    <h3 class="project-card__title">Aménagement Place Publique</h3>
+                    <p class="project-card__desc">Relevé et plan de masse d'une place publique 2 ha, suivi d'implantation des aménagements paysagers.</p>
+                    <div class="project-card__tags">
+                        <span>Plan de masse</span>
+                        <span>QGIS</span>
+                        <span>Levé</span>
+                    </div>
+                    <div class="project-card__meta">
+                        <span><ion-icon name="calendar-outline"></ion-icon> 2020</span>
+                        <span><ion-icon name="location-outline"></ion-icon> Béni Mellal</span>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /projects__grid -->
+    </div>
+</section>
+
+
+<!-- ============================================================
+     MODAL LIGHTBOX — à insérer juste avant </main>
+     ============================================================ -->
+<div id="projectModal" class="project-modal" role="dialog" aria-modal="true" aria-label="Détail projet">
+    <div class="project-modal__backdrop" onclick="closeProjectModal()"></div>
+    <div class="project-modal__box">
+        <button class="project-modal__close" onclick="closeProjectModal()" aria-label="Fermer">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+        <div class="project-modal__img-wrap">
+            <img id="modal-img" src="" alt="" class="project-modal__img">
+            <span id="modal-category" class="project-modal__badge"></span>
+        </div>
+        <div class="project-modal__info">
+            <h3 id="modal-title" class="project-modal__title"></h3>
+            <p  id="modal-desc"  class="project-modal__desc"></p>
+            <div class="project-modal__details">
+                <div class="project-modal__detail">
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    <span id="modal-year"></span>
+                </div>
+                <div class="project-modal__detail">
+                    <ion-icon name="location-outline"></ion-icon>
+                    <span id="modal-location"></span>
+                </div>
+            </div>
+            <div id="modal-tags" class="project-modal__tags"></div>
+        </div>
+    </div>
+</div>
 
     <main class="l-main bd-grid">
         <div class="home" id="home">
@@ -640,6 +851,7 @@
 </body>
 
 </html>
+
 
 
 
