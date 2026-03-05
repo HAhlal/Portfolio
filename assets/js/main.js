@@ -1,50 +1,97 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM fully loaded");
 
- 
+    /* ================================================
+       DONNÉES PROJETS
+       Modifier ici pour ajouter / éditer des projets
+       ================================================ */
+    const projectsData = [
+        {
+            img:      './assets/img/projects/project1.jpg',
+            category: 'Routier',
+            title:    'Déviation RN — Safi',
+            desc:     'Levés topographiques et implantation d\'une déviation routière de 12 km. Profils en long/travers, cubatures et plans de récolement complets.',
+            year:     '2025',
+            location: 'Safi, Maroc',
+            tags:     ['GPS RTK', 'Civil 3D', 'Implantation', 'Cubatures'],
+        },
+        {
+            img:      './assets/img/projects/project2.jpg',
+            category: 'Bâtiment',
+            title:    'Complexe Industriel — Tanger',
+            desc:     'Implantation d\'un complexe industriel de 4 ha. Contrôle géométrique des structures béton, relevés de façades et plans d\'exécution.',
+            year:     '2022',
+            location: 'Tanger, Maroc',
+            tags:     ['Station Totale', 'AutoCAD', 'Contrôle', 'Bâtiment'],
+        },
+        {
+            img:      './assets/img/projects/project3.jpg',
+            category: 'Minier',
+            title:    'Carrière Calcaire — Rabat',
+            desc:     'Topographie minière, calcul des réserves et suivi mensuel des fronts de taille. Modélisation 3D du gisement et rapports de volumétrie.',
+            year:     '2023',
+            location: 'Rabat, Maroc',
+            tags:     ['Surpac', 'Cubatures', '3D', 'Réserves'],
+        },
+        {
+            img:      './assets/img/projects/project4.jpg',
+            category: 'Urbain',
+            title:    'Réseau AEP — Azemmour',
+            desc:     'Levés et implantation réseau d\'eau potable sur 8 km de voiries urbaines. Plans de récolement finaux et coordination avec les équipes travaux.',
+            year:     '2024',
+            location: 'Azemmour, Maroc',
+            tags:     ['Covadis', 'Réseaux AEP', 'Nivellement', 'Récolement'],
+        },
+        {
+            img:      './assets/img/projects/project5.jpg',
+            category: 'Routier',
+            title:    'Ouvrage d\'Art — Béni Mellal',
+            desc:     'Implantation et contrôle géométrique d\'un pont à poutres préfabriquées. Calage altimétrique de précision mm et suivi des déformations.',
+            year:     '2021',
+            location: 'Béni Mellal, Maroc',
+            tags:     ['Précision', 'Nivellement', 'Piquetage', 'Ouvrages d\'art'],
+        },
+        {
+            img:      './assets/img/projects/project6.jpg',
+            category: 'Urbain',
+            title:    'Aménagement Place Publique',
+            desc:     'Relevé complet et plan de masse d\'une place publique de 2 ha, suivi de l\'implantation des aménagements paysagers et mobilier urbain.',
+            year:     '2020',
+            location: 'Béni Mellal, Maroc',
+            tags:     ['Plan de masse', 'QGIS', 'Levé', 'Paysage'],
+        },
+    ];
+
+
+    /* ================================================
+       ANIMATIONS INITIALES (GSAP)
+       ================================================ */
     function playInitialAnimations() {
-        console.log("Playing/Replaying initial animations...");
+        console.log("Playing initial animations...");
 
-       
-        gsap.set(".first", { top: 0 });
+        gsap.set(".first",  { top: 0 });
         gsap.set(".second", { top: 0 });
-        gsap.set(".third", { top: 0 });
+        gsap.set(".third",  { top: 0 });
 
-    
         const overlays = gsap.timeline();
         overlays
-            .to(".first", { duration: 1.5, top: "-100%", ease: "expo.inOut" })
+            .to(".first",  { duration: 1.5, top: "-100%", ease: "expo.inOut" })
             .to(".second", { duration: 1.5, top: "-100%", ease: "expo.inOut" }, "-=1.2")
-            .to(".third", { duration: 1.5, top: "-100%", ease: "expo.inOut" }, "-=1.2");
+            .to(".third",  { duration: 1.5, top: "-100%", ease: "expo.inOut" }, "-=1.2");
 
-    
-       
-            gsap.from(".home__img-container", {
-                duration: 2,
-                x: 100,
-                opacity: 0,
-                rotation: -30,
-                ease: "power3.out",
-                delay: 1.5
-            });
-            
-            gsap.from(".home__img", {
-                duration: 1.5,
-                scale: 0.8,
-                opacity: 0,
-                ease: "elastic.out(1, 0.5)",
-                delay: 2
-            });
-            
-            gsap.from(".home__img-border", {
-                duration: 2,
-                scale: 0,
-                opacity: 0,
-                ease: "back.out(4)",
-                delay: 1.8
-            });
+        gsap.from(".home__img-container", {
+            duration: 2, x: 100, opacity: 0, rotation: -30,
+            ease: "power3.out", delay: 1.5
+        });
+        gsap.from(".home__img", {
+            duration: 1.5, scale: 0.8, opacity: 0,
+            ease: "elastic.out(1, 0.5)", delay: 2
+        });
+        gsap.from(".home__img-border", {
+            duration: 2, scale: 0, opacity: 0,
+            ease: "back.out(4)", delay: 1.8
+        });
 
-      
         const homeTimeline = gsap.timeline({ defaults: { ease: "power3.out" } });
 
         homeTimeline.fromTo('.home__information',
@@ -55,11 +102,8 @@ document.addEventListener('DOMContentLoaded', function() {
         homeTimeline.fromTo('.home__pressent',
             { opacity: 0, y: 20 },
             {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                stagger: 0.15,
-                onStart: function() {
+                opacity: 1, y: 0, duration: 0.8, stagger: 0.15,
+                onStart: function () {
                     document.querySelectorAll('.home__pressent').forEach(el => {
                         el.style.color = "#646d70";
                     });
@@ -70,17 +114,10 @@ document.addEventListener('DOMContentLoaded', function() {
         homeTimeline.fromTo(".home__title",
             { x: -150, opacity: 0 },
             {
-                x: 0,
-                opacity: 1,
-                duration: 1.5,
-                ease: "elastic.out(1, 0.8)",
-                onStart: function() {
+                x: 0, opacity: 1, duration: 1.5, ease: "elastic.out(1, 0.8)",
+                onStart: function () {
                     document.querySelector('.home__title').style.color = "#ffffff";
-                    gsap.to(".home__title", {
-                        color: "#2bbff0",
-                        duration: 1.8,
-                        ease: "sine.inOut"
-                    });
+                    gsap.to(".home__title", { color: "#2bbff0", duration: 1.8, ease: "sine.inOut" });
                 }
             }, "-=0.5"
         );
@@ -88,20 +125,14 @@ document.addEventListener('DOMContentLoaded', function() {
         homeTimeline.fromTo(".home__skill",
             { x: 150, opacity: 0 },
             {
-                x: 0,
-                opacity: 1,
-                duration: 1.5,
-                ease: "back.out(3)",
-                onStart: function() {
+                x: 0, opacity: 1, duration: 1.5, ease: "back.out(3)",
+                onStart: function () {
                     document.querySelector('.home__skill').style.color = "#ffffff";
                 },
-                onComplete: function() {
+                onComplete: function () {
                     gsap.to(".home__skill", {
-                        color: "#2bbff0",
-                        duration: 0.8,
-                        yoyo: true,
-                        repeat: 1,
-                        ease: "power1.inOut"
+                        color: "#2bbff0", duration: 0.8,
+                        yoyo: true, repeat: 1, ease: "power1.inOut"
                     });
                 }
             }, "-=1"
@@ -112,176 +143,152 @@ document.addEventListener('DOMContentLoaded', function() {
             { opacity: 1, y: 0, duration: 0.8, ease: "bounce.out" }, "-=0.5"
         );
 
-     
         gsap.fromTo('.nav__logo',
             { opacity: 0, y: 25 },
             { opacity: 1, y: 0, duration: 1.5, delay: 1, ease: "expo.out" }
         );
 
-  
         gsap.fromTo('.home__social-icon',
             { opacity: 0, y: 25 },
             { opacity: 1, y: 0, duration: 1.5, delay: 2.5, stagger: 0.15, ease: "back.out(2)" }
         );
     }
 
-  
     if (typeof gsap !== 'undefined') {
         playInitialAnimations();
     } else {
         console.error("GSAP not loaded!");
     }
 
- 
-    document.getElementById('logo-link').addEventListener('click', function(e) {
+
+    /* ================================================
+       LOGO → RELOAD AVEC ANIMATION
+       ================================================ */
+    document.getElementById('logo-link').addEventListener('click', function (e) {
         e.preventDefault();
-
-  
         window.scrollTo({ top: 0, behavior: 'smooth' });
-
-     
-        gsap.to('body', { opacity: 0, duration: 0.3, onComplete: () => {
-       
-            gsap.to('body', { opacity: 1, duration: 0.3 });
-            playInitialAnimations();
-        }});
+        gsap.to('body', {
+            opacity: 0, duration: 0.3,
+            onComplete: () => {
+                gsap.to('body', { opacity: 1, duration: 0.3 });
+                playInitialAnimations();
+            }
+        });
     });
 
- 
+    window.reloadWithAnimation = function () {};
+
+
+    /* ================================================
+       MENU MOBILE
+       ================================================ */
     const showMenu = (toggleId, navId) => {
-        const toggle = document.getElementById(toggleId),
-              nav = document.getElementById(navId),
-              navLinks = document.querySelectorAll('.nav__link');
+        const toggle   = document.getElementById(toggleId);
+        const nav      = document.getElementById(navId);
+        const navLinks = document.querySelectorAll('.nav__link');
 
-        if (toggle && nav) {
-            toggle.addEventListener('click', () => {
-                console.log("Menu toggle clicked");
-                nav.classList.toggle('show');
-                toggle.classList.toggle('active');
+        if (!toggle || !nav) {
+            console.error("Menu elements not found:", { toggleId, navId });
+            return;
+        }
 
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('show');
+            toggle.classList.toggle('active');
+
+            if (nav.classList.contains('show')) {
+                gsap.from(nav.querySelectorAll('.nav__item'), {
+                    opacity: 0, y: 20, duration: 0.5, stagger: 0.1,
+                    ease: "power2.out",
+                    onStart: () => gsap.to(nav, { backgroundColor: 'rgba(17,17,17,0.98)', duration: 0.3 })
+                });
+            } else {
+                gsap.to(nav, { backgroundColor: 'rgba(17,17,17,0)', duration: 0.3 });
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
                 if (nav.classList.contains('show')) {
-                    gsap.from(nav.querySelectorAll('.nav__item'), {
-                        opacity: 0,
-                        y: 20,
-                        duration: 0.5,
-                        stagger: 0.1,
-                        ease: "power2.out",
-                        onStart: () => {
-                            gsap.to(nav, {
-                                backgroundColor: 'rgba(17, 17, 17, 0.98)',
-                                duration: 0.3
-                            });
-                        }
-                    });
-                } else {
-                    gsap.to(nav, {
-                        backgroundColor: 'rgba(17, 17, 17, 0)',
-                        duration: 0.3
-                    });
+                    nav.classList.remove('show');
+                    toggle.classList.remove('active');
+                    gsap.to(nav, { backgroundColor: 'rgba(17,17,17,0)', duration: 0.3 });
                 }
             });
-
-           
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (nav.classList.contains('show')) {
-                        nav.classList.remove('show');
-                        toggle.classList.remove('active');
-                        gsap.to(nav, {
-                            backgroundColor: 'rgba(17, 17, 17, 0)',
-                            duration: 0.3
-                        });
-                    }
-                });
-            });
-        } else {
-            console.error("Menu elements not found:", { toggleId, navId });
-        }
+        });
     };
 
     showMenu('nav-toggle', 'nav-menu');
 
-    
-    gsap.from("#about .section-title", {
-        scrollTrigger: {
-            trigger: "#about",
-            start: "top 80%",
-            toggleActions: "play none none none"
-        },
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: "power2.out"
-    });
 
+    /* ================================================
+       SCROLL ANIMATIONS (GSAP ScrollTrigger)
+       ================================================ */
+    if (typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+    }
+
+    gsap.from("#about .section-title", {
+        scrollTrigger: { trigger: "#about", start: "top 80%", toggleActions: "play none none none" },
+        opacity: 0, y: 50, duration: 1, ease: "power2.out"
+    });
 
     gsap.from(".service-card", {
-        scrollTrigger: {
-            trigger: "#services",
-            start: "top 80%",
-            toggleActions: "play none none none"
-        },
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        stagger: {
-            each: 0.2,
-            from: "random"
-        },
+        scrollTrigger: { trigger: "#services", start: "top 80%", toggleActions: "play none none none" },
+        opacity: 0, y: 50, duration: 1,
+        stagger: { each: 0.2, from: "random" },
         ease: "back.out(1.7)",
-        onStart: function() {
+        onStart: function () {
             gsap.from(".service-header ion-icon:first-child", {
-                color: "#646d70",
-                duration: 1.5,
-                ease: "power2.inOut",
-                stagger: 0.1
+                color: "#646d70", duration: 1.5, ease: "power2.inOut", stagger: 0.1
             });
         }
     });
 
-  
     gsap.from(".experience-card", {
-        scrollTrigger: {
-            trigger: "#blog", 
-            start: "top 80%",
-            toggleActions: "play none none none"
-        },
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        stagger: {
-            each: 0.2,
-            from: "random"
-        },
+        scrollTrigger: { trigger: "#experiences", start: "top 80%", toggleActions: "play none none none" },
+        opacity: 0, y: 50, duration: 0.8,
+        stagger: { each: 0.2, from: "random" },
         ease: "back.out(1.7)",
-        onStart: function() {
+        onStart: function () {
             gsap.from(".company-logo", {
-                scale: 0,
-                duration: 0.6,
-                ease: "elastic.out(1, 0.5)",
-                stagger: 0.1
+                scale: 0, duration: 0.6,
+                ease: "elastic.out(1, 0.5)", stagger: 0.1
             });
         }
+    });
+
+    gsap.from(".project-card", {
+        scrollTrigger: { trigger: "#projects", start: "top 80%", toggleActions: "play none none none" },
+        opacity: 0, y: 50, duration: 0.8,
+        stagger: { each: 0.15, from: "start" },
+        ease: "back.out(1.7)"
+    });
+
+    gsap.from("#projects .section-title", {
+        scrollTrigger: { trigger: "#projects", start: "top 85%", toggleActions: "play none none none" },
+        opacity: 0, y: 40, duration: 1, ease: "power2.out"
+    });
+
+    gsap.from(".filter-btn", {
+        scrollTrigger: { trigger: "#projects", start: "top 80%", toggleActions: "play none none none" },
+        opacity: 0, y: 20, duration: 0.6,
+        stagger: 0.1, ease: "power2.out"
     });
 
     gsap.from("#contact .section-title, #contact .contact-form", {
-        scrollTrigger: {
-            trigger: "#contact",
-            start: "top 80%",
-            toggleActions: "play none none none"
-        },
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power2.out"
+        scrollTrigger: { trigger: "#contact", start: "top 80%", toggleActions: "play none none none" },
+        opacity: 0, y: 50, duration: 1, stagger: 0.2, ease: "power2.out"
     });
 
-   
+
+    /* ================================================
+       SMOOTH SCROLL + ACTIVE LINK
+       ================================================ */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
+            const targetId      = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
@@ -290,46 +297,42 @@ document.addEventListener('DOMContentLoaded', function() {
                     navMenu.classList.remove('show');
                     document.getElementById('nav-toggle').classList.remove('active');
                 }
+                window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
 
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-
-                document.querySelectorAll('.nav__link').forEach(link => {
-                    link.classList.remove('active');
-                });
-                this.classList.add('active');
+                document.querySelectorAll('.nav__link').forEach(l => l.classList.remove('active-link'));
+                this.classList.add('active-link');
             }
         });
     });
 
-
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav__link');
+    const sections  = document.querySelectorAll('section');
+    const navLinks  = document.querySelectorAll('.nav__link');
 
     window.addEventListener('scroll', () => {
         let current = "";
-
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-
-            if (window.pageYOffset >= (sectionTop - sectionHeight / 3)) {
+            if (window.pageYOffset >= section.offsetTop - section.clientHeight / 3) {
                 current = section.getAttribute('id');
             }
         });
-
         navLinks.forEach(link => {
-            link.classList.remove('active');
+            link.classList.remove('active-link');
             if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
+                link.classList.add('active-link');
             }
         });
     });
 
-  
-    window.toggleServiceDetails = function(id) {
+
+    /* ================================================
+       TOGGLE SERVICES
+       ================================================ */
+    document.querySelectorAll('.service-details').forEach(d => {
+        d.style.height  = '0';
+        d.style.opacity = '0';
+    });
+
+    window.toggleServiceDetails = function (id) {
         const details = document.getElementById(id);
         if (!details) return;
 
@@ -337,47 +340,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (details.classList.contains('show')) {
             gsap.to(details, {
-                height: 0,
-                opacity: 0,
-                duration: 0.3,
-                ease: "power1.inOut",
+                height: 0, opacity: 0, duration: 0.3, ease: "power1.inOut",
                 onComplete: () => details.classList.remove('show')
             });
             if (arrow) arrow.style.transform = 'rotate(0deg)';
         } else {
             details.classList.add('show');
-            gsap.to(details, {
-                height: 'auto',
-                opacity: 1,
-                duration: 0.3,
-                ease: "power1.inOut"
-            });
+            gsap.to(details, { height: 'auto', opacity: 1, duration: 0.3, ease: "power1.inOut" });
             if (arrow) arrow.style.transform = 'rotate(180deg)';
         }
     };
 
-    document.querySelectorAll('.service-details').forEach(details => {
-        details.style.height = '0';
-        details.style.opacity = '0';
+
+    /* ================================================
+       TOGGLE EXPÉRIENCES
+       ================================================ */
+    document.querySelectorAll('.experience-card-details').forEach(d => {
+        d.style.height        = '0';
+        d.style.opacity       = '0';
+        d.style.paddingTop    = '0';
+        d.style.paddingBottom = '0';
+        d.style.marginTop     = '0';
+        d.style.overflow      = 'hidden';
     });
 
-   
-    window.toggleExperienceDetails = function(id) {
+    window.toggleExperienceDetails = function (id) {
         const details = document.getElementById(id);
         if (!details) return;
 
         const arrow = details.previousElementSibling.querySelector('.experience-arrow');
-        const card = details.closest('.experience-card');
 
         if (details.classList.contains('show')) {
             gsap.to(details, {
-                height: 0,
-                opacity: 0,
-                paddingTop: 0,
-                paddingBottom: 0,
-                marginTop: 0,
-                duration: 0.3,
-                ease: "power1.inOut",
+                height: 0, opacity: 0,
+                paddingTop: 0, paddingBottom: 0, marginTop: 0,
+                duration: 0.3, ease: "power1.inOut",
                 onComplete: () => {
                     details.classList.remove('show');
                     details.style.height = '';
@@ -386,57 +383,118 @@ document.addEventListener('DOMContentLoaded', function() {
             if (arrow) arrow.style.transform = 'rotate(0deg)';
         } else {
             details.classList.add('show');
-            const contentHeight = details.scrollHeight;
-
+            const h = details.scrollHeight;
             gsap.to(details, {
-                height: contentHeight,
-                opacity: 1,
-                paddingTop: '1rem',
-                paddingBottom: '1.5rem',
-                marginTop: '1rem',
-                duration: 0.3,
-                ease: "power1.inOut",
-                onStart: () => {
-                    details.style.display = 'block';
-                }
+                height: h, opacity: 1,
+                paddingTop: '1rem', paddingBottom: '1.5rem', marginTop: '1rem',
+                duration: 0.3, ease: "power1.inOut",
+                onStart: () => { details.style.display = 'block'; }
             });
             if (arrow) arrow.style.transform = 'rotate(180deg)';
         }
     };
 
-   
-    document.querySelectorAll('.experience-card-details').forEach(details => {
-        details.style.height = '0';
-        details.style.opacity = '0';
-        details.style.paddingTop = '0';
-        details.style.paddingBottom = '0';
-        details.style.marginTop = '0';
-        details.style.overflow = 'hidden';
-    });
 
-   
+    /* ================================================
+       HOVER SERVICES (couleur titre)
+       ================================================ */
     document.querySelectorAll('.service-card').forEach(card => {
         card.addEventListener('mouseenter', () => {
-            gsap.to(card.querySelector('.service-header h3'), {
-                color: "#2bbff0",
-                duration: 0.3
-            });
+            gsap.to(card.querySelector('.service-header h3'), { color: "#2bbff0", duration: 0.3 });
         });
-
         card.addEventListener('mouseleave', () => {
-            gsap.to(card.querySelector('.service-header h3'), {
-                color: "#ffffff",
-                duration: 0.3
+            gsap.to(card.querySelector('.service-header h3'), { color: "#ffffff", duration: 0.3 });
+        });
+    });
+
+
+    /* ================================================
+       FILTRE PROJETS
+       ================================================ */
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // bouton actif
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.dataset.filter;
+            const cards  = document.querySelectorAll('.project-card');
+
+            cards.forEach(card => {
+                const match = filter === 'all' || card.dataset.category === filter;
+
+                if (match) {
+                    card.classList.remove('hidden');
+                    gsap.fromTo(card,
+                        { opacity: 0, y: 20 },
+                        { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }
+                    );
+                } else {
+                    gsap.to(card, {
+                        opacity: 0, y: 10, duration: 0.25, ease: "power1.in",
+                        onComplete: () => card.classList.add('hidden')
+                    });
+                }
             });
         });
     });
 
-    
+
+    /* ================================================
+       MODAL PROJET
+       ================================================ */
+    window.openProjectModal = function (index) {
+        const p     = projectsData[index];
+        const modal = document.getElementById('projectModal');
+        if (!modal || !p) return;
+
+        document.getElementById('modal-img').src              = p.img;
+        document.getElementById('modal-img').alt              = p.title;
+        document.getElementById('modal-category').textContent = p.category;
+        document.getElementById('modal-title').textContent    = p.title;
+        document.getElementById('modal-desc').textContent     = p.desc;
+        document.getElementById('modal-year').textContent     = p.year;
+        document.getElementById('modal-location').textContent = p.location;
+
+        const tagsEl = document.getElementById('modal-tags');
+        tagsEl.innerHTML = p.tags.map(t => `<span>${t}</span>`).join('');
+
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+
+        gsap.fromTo(modal.querySelector('.project-modal__box'),
+            { opacity: 0, y: 40, scale: 0.96 },
+            { opacity: 1, y: 0,  scale: 1, duration: 0.4, ease: "power3.out" }
+        );
+    };
+
+    window.closeProjectModal = function () {
+        const modal = document.getElementById('projectModal');
+        if (!modal) return;
+
+        gsap.to(modal.querySelector('.project-modal__box'), {
+            opacity: 0, y: 30, scale: 0.96, duration: 0.25, ease: "power2.in",
+            onComplete: () => {
+                modal.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+    };
+
+    // Fermer avec Escape
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') window.closeProjectModal();
+    });
+
+
+    /* ================================================
+       FORMULAIRE CONTACT
+       ================================================ */
     function initContactForm() {
         const form = document.getElementById('contactForm');
         if (!form) return;
 
-        form.addEventListener('submit', async function(e) {
+        form.addEventListener('submit', async function (e) {
             e.preventDefault();
             const button = form.querySelector('button[type="submit"]');
 
@@ -460,25 +518,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             } catch (error) {
                 console.error('Erreur avec FormSubmit:', error);
-                const name = encodeURIComponent(form.querySelector('[name="name"]').value);
-                const email = encodeURIComponent(form.querySelector('[name="email"]').value);
-                const subject = encodeURIComponent(form.querySelector('[name="subject"]').value);
-                const message = encodeURIComponent(form.querySelector('[name="message"]').value);
+                const name    = encodeURIComponent(form.querySelector('[name="Nom"]').value);
+                const email   = encodeURIComponent(form.querySelector('[name="Email"]').value);
+                const subject = encodeURIComponent(form.querySelector('[name="Objet"]').value);
+                const message = encodeURIComponent(form.querySelector('[name="Message"]').value);
 
-                window.location.href = `mailto:daoui00yassine@gmail.com?subject=${subject}&body=Nom: ${name}%0AEmail: ${email}%0A%0AMessage: ${message}`;
+                window.location.href = `mailto:Hassan.newyear@gmail.com?subject=${subject}&body=Nom: ${name}%0AEmail: ${email}%0A%0AMessage: ${message}`;
 
                 button.disabled = false;
                 button.innerHTML = '<span>Envoyer le message</span><ion-icon name="send-outline" class="button__icon"></ion-icon>';
-
-                alert("Le formulaire a rencontré un problème. Une fenêtre d'email s'est ouverte à la place.");
             }
         });
     }
 
     initContactForm();
 
-   
-    const urlParams = new URLSearchParams(window.location.search);
+
+    /* ================================================
+       POPUP SUCCÈS (retour FormSubmit)
+       ================================================ */
+    const urlParams    = new URLSearchParams(window.location.search);
     const successParam = urlParams.get('success');
 
     if (successParam === 'true') {
@@ -486,9 +545,11 @@ document.addEventListener('DOMContentLoaded', function() {
         window.history.replaceState({}, document.title, window.location.pathname);
     }
 
-    document.querySelector('.close-popup-btn').addEventListener('click', function() {
-        document.getElementById('successPopup').style.display = 'none';
-    });
+    const closePopupBtn = document.querySelector('.close-popup-btn');
+    if (closePopupBtn) {
+        closePopupBtn.addEventListener('click', function () {
+            document.getElementById('successPopup').style.display = 'none';
+        });
+    }
 
-
-});
+}); // END DOMContentLoaded
