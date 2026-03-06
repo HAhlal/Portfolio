@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
        ================================================ */
     const projectsData = [
         {
-            img:      './assets/img/projects/project1.jpg',
+            img:      './assets/img/project1.jpg',
             category: 'Routier',
             title:    'Déviation RN — Safi',
             desc:     'Levés topographiques et implantation d\'une déviation routière de 12 km. Profils en long/travers, cubatures et plans de récolement complets.',
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags:     ['GPS RTK', 'Civil 3D', 'Implantation', 'Cubatures'],
         },
         {
-            img:      './assets/img/projects/project2.jpg',
+            img:      './assets/img/project2.jpg',
             category: 'Bâtiment',
             title:    'Complexe Industriel — Tanger',
             desc:     'Implantation d\'un complexe industriel de 4 ha. Contrôle géométrique des structures béton, relevés de façades et plans d\'exécution.',
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags:     ['Station Totale', 'AutoCAD', 'Contrôle', 'Bâtiment'],
         },
         {
-            img:      './assets/img/projects/project3.jpg',
+            img:      './assets/img/project3.jpg',
             category: 'Minier',
             title:    'Carrière Calcaire — Rabat',
             desc:     'Topographie minière, calcul des réserves et suivi mensuel des fronts de taille. Modélisation 3D du gisement et rapports de volumétrie.',
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags:     ['Surpac', 'Cubatures', '3D', 'Réserves'],
         },
         {
-            img:      './assets/img/projects/project4.jpg',
+            img:      './assets/img/project4.jpg',
             category: 'Urbain',
             title:    'Réseau AEP — Azemmour',
             desc:     'Levés et implantation réseau d\'eau potable sur 8 km de voiries urbaines. Plans de récolement finaux et coordination avec les équipes travaux.',
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags:     ['Covadis', 'Réseaux AEP', 'Nivellement', 'Récolement'],
         },
         {
-            img:      './assets/img/projects/project5.jpg',
+            img:      './assets/img/project5.jpg',
             category: 'Routier',
             title:    'Ouvrage d\'Art — Béni Mellal',
             desc:     'Implantation et contrôle géométrique d\'un pont à poutres préfabriquées. Calage altimétrique de précision mm et suivi des déformations.',
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags:     ['Précision', 'Nivellement', 'Piquetage', 'Ouvrages d\'art'],
         },
         {
-            img:      './assets/img/projects/project6.jpg',
+            img:      './assets/img/project6.jpg',
             category: 'Urbain',
             title:    'Aménagement Place Publique',
             desc:     'Relevé complet et plan de masse d\'une place publique de 2 ha, suivi de l\'implantation des aménagements paysagers et mobilier urbain.',
@@ -553,3 +553,4 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 }); // END DOMContentLoaded
+
