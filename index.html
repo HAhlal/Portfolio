@@ -1,858 +1,947 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Hassan Ahlal | Géomètre-Topographe</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S06YPBJV04"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-S06YPBJV04');
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hassan Ahlal | Responsable Topographe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d1b2e;
+      --blue: #1a3a5c;
+      --accent: #2e75b6;
+      --accent-light: #4a9fd4;
+      --gold: #c9a84c;
+      --white: #ffffff;
+      --off-white: #f4f7fb;
+      --gray: #8a9ab0;
+      --light-gray: #e8eef5;
+      --text: #1a2535;
+      --text-light: #5a6a7e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(13, 27, 46, 0.96);
+      backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      border-bottom: 1px solid rgba(46,117,182,0.2);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem; font-weight: 800;
+      color: var(--white);
+      letter-spacing: 0.5px;
+    }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent-light); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 4px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--accent-light) !important; color: var(--white) !important; }
+
+    /* ─── HERO ─── */
+    #home {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding-top: 68px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 70% 50%, rgba(46,117,182,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 5%;
+      display: grid; grid-template-columns: 1fr 420px;
+      gap: 4rem; align-items: center;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: rgba(46,117,182,0.15);
+      border: 1px solid rgba(46,117,182,0.3);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--accent-light);
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--accent-light);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.4); }
+    }
+    .hero-name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 800; color: var(--white);
+      line-height: 1.05; margin-bottom: 0.4rem;
+    }
+    .hero-name span { color: var(--accent-light); }
+    .hero-title {
+      font-size: 1.15rem; font-weight: 400;
+      color: var(--gray); margin-bottom: 1.5rem;
+      letter-spacing: 0.3px;
+    }
+    .hero-title strong { color: rgba(255,255,255,0.7); font-weight: 500; }
+    .hero-desc {
+      font-size: 0.97rem; line-height: 1.75;
+      color: rgba(255,255,255,0.55);
+      max-width: 520px; margin-bottom: 2rem;
+    }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-bottom: 2.5rem;
+    }
+    .stat-val {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem; font-weight: 800;
+      color: var(--white); line-height: 1;
+    }
+    .stat-val span { color: var(--accent-light); }
+    .stat-label { font-size: 0.78rem; color: var(--gray); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 6px; font-weight: 600;
+      font-size: 0.9rem; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.8);
+      padding: 0.85rem 2rem;
+      border-radius: 6px; font-weight: 500;
+      font-size: 0.9rem; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--accent-light); color: var(--accent-light); transform: translateY(-2px); }
+
+    /* Hero photo */
+    .hero-photo-wrap {
+      position: relative;
+      display: flex; justify-content: center;
+    }
+    .hero-photo-frame {
+      position: relative; width: 340px; height: 400px;
+    }
+    .hero-photo-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--navy) 100%);
+      border-radius: 12px;
+      transform: rotate(3deg);
+      opacity: 0.3;
+    }
+    .hero-photo {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      border-radius: 10px;
+      filter: grayscale(10%);
+    }
+    .hero-badge {
+      position: absolute; bottom: -16px; right: -16px;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      font-weight: 700; font-size: 0.8rem;
+      text-align: center; line-height: 1.3;
+      box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+    }
+    .hero-badge .big { font-family: 'Syne', sans-serif; font-size: 1.4rem; display: block; }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 90px 5%; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-eyebrow {
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800; color: var(--navy);
+      line-height: 1.15; margin-bottom: 1rem;
+    }
+    .section-line {
+      width: 48px; height: 3px;
+      background: var(--accent);
+      border-radius: 2px; margin-bottom: 3rem;
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--off-white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+    }
+    .about-text p {
+      font-size: 0.97rem; line-height: 1.8;
+      color: var(--text-light); margin-bottom: 1.2rem;
+    }
+    .about-text p strong { color: var(--navy); }
+    .skills-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .skill-card {
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      border-radius: 8px; padding: 1.2rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .skill-card:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(46,117,182,0.08); }
+    .skill-card-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .skill-card-title { font-weight: 600; font-size: 0.88rem; color: var(--navy); margin-bottom: 0.4rem; }
+    .skill-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    .tag {
+      background: var(--off-white);
+      color: var(--accent);
+      font-size: 0.72rem; font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 100px;
+      border: 1px solid var(--light-gray);
+    }
+
+    /* ─── EXPERIENCE ─── */
+    #experiences { background: var(--white); }
+    .exp-timeline { position: relative; }
+    .exp-timeline::before {
+      content: '';
+      position: absolute; left: 28px; top: 0; bottom: 0;
+      width: 2px; background: var(--light-gray);
+    }
+    .exp-item {
+      display: flex; gap: 2rem;
+      margin-bottom: 2.5rem; position: relative;
+    }
+    .exp-dot {
+      flex-shrink: 0; width: 58px; height: 58px;
+      background: var(--white);
+      border: 2px solid var(--light-gray);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; z-index: 1;
+      transition: border-color 0.2s;
+    }
+    .exp-dot img { width: 46px; height: 46px; object-fit: contain; }
+    .exp-dot.no-logo {
+      background: var(--navy);
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1rem;
+      color: var(--white);
+    }
+    .exp-item:hover .exp-dot { border-color: var(--accent); }
+    .exp-body {
+      flex: 1;
+      background: var(--off-white);
+      border: 1px solid var(--light-gray);
+      border-radius: 10px; padding: 1.4rem 1.6rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .exp-item:hover .exp-body { border-color: rgba(46,117,182,0.3); box-shadow: 0 4px 20px rgba(46,117,182,0.06); }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.3rem; }
+    .exp-company { font-weight: 700; font-size: 1rem; color: var(--navy); }
+    .exp-period {
+      font-size: 0.8rem; font-weight: 500;
+      color: var(--white); background: var(--accent);
+      padding: 0.2rem 0.7rem; border-radius: 100px;
+    }
+    .exp-role { font-size: 0.9rem; color: var(--accent); font-weight: 600; margin-bottom: 0.4rem; }
+    .exp-project { font-size: 0.82rem; color: var(--text-light); font-style: italic; margin-bottom: 0.8rem; }
+    .exp-missions { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+    .exp-missions li {
+      font-size: 0.87rem; color: var(--text-light); line-height: 1.5;
+      padding-left: 1rem; position: relative;
+    }
+    .exp-missions li::before {
+      content: '▸'; color: var(--accent);
+      position: absolute; left: 0; font-size: 0.75rem;
+    }
+
+    /* ─── PROJECTS ─── */
+    #projects { background: var(--navy); }
+    #projects .section-title { color: var(--white); }
+    #projects .section-eyebrow { color: var(--accent-light); }
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .project-card {
+      border-radius: 10px; overflow: hidden;
+      background: var(--blue);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: default;
+    }
+    .project-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+    .project-img {
+      width: 100%; height: 200px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.9);
+      transition: filter 0.3s;
+    }
+    .project-card:hover .project-img { filter: brightness(1); }
+    .project-info { padding: 1.2rem; }
+    .project-cat {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--accent-light); margin-bottom: 0.4rem;
+    }
+    .project-name { font-weight: 700; font-size: 0.97rem; color: var(--white); margin-bottom: 0.4rem; }
+    .project-desc { font-size: 0.83rem; color: rgba(255,255,255,0.5); line-height: 1.5; margin-bottom: 0.8rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    .project-tag {
+      background: rgba(46,117,182,0.2);
+      border: 1px solid rgba(46,117,182,0.3);
+      color: var(--accent-light);
+      font-size: 0.7rem; font-weight: 600;
+      padding: 0.2rem 0.55rem; border-radius: 100px;
+    }
+
+    /* ─── FORMATION ─── */
+    #formation { background: var(--off-white); }
+    .formation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .formation-card {
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      border-radius: 10px; padding: 1.8rem;
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .formation-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(46,117,182,0.08); }
+    .formation-icon {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: var(--navy);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent-light); font-size: 1.3rem;
+    }
+    .formation-title { font-weight: 700; font-size: 0.97rem; color: var(--navy); margin-bottom: 0.2rem; }
+    .formation-school { font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 0.2rem; }
+    .formation-year { font-size: 0.8rem; color: var(--text-light); }
+    .formation-mention {
+      display: inline-block; margin-top: 0.5rem;
+      background: #fff8e6; border: 1px solid var(--gold);
+      color: #7a5c00; font-size: 0.75rem; font-weight: 600;
+      padding: 0.15rem 0.6rem; border-radius: 100px;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--navy); }
+    #contact .section-title { color: var(--white); }
+    #contact .section-eyebrow { color: var(--accent-light); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .contact-desc { font-size: 0.97rem; line-height: 1.75; color: rgba(255,255,255,0.55); margin-bottom: 2rem; }
+    .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-item {
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .contact-item-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(46,117,182,0.15);
+      border: 1px solid rgba(46,117,182,0.3);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent-light); font-size: 1rem;
+    }
+    .contact-item-label { font-size: 0.75rem; color: var(--gray); margin-bottom: 0.1rem; }
+    .contact-item-val { font-size: 0.92rem; color: var(--white); font-weight: 500; text-decoration: none; }
+    .contact-item-val:hover { color: var(--accent-light); }
+    .contact-socials { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+    .social-btn {
+      width: 44px; height: 44px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.6); font-size: 1rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .social-btn:hover { border-color: var(--accent-light); color: var(--accent-light); background: rgba(46,117,182,0.1); }
+
+    /* Contact form */
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label { font-size: 0.8rem; color: rgba(255,255,255,0.6); font-weight: 500; }
+    .form-group input,
+    .form-group textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px; padding: 0.75rem 1rem;
+      color: var(--white); font-family: 'Inter', sans-serif;
+      font-size: 0.88rem; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--accent); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #060e1a;
+      text-align: center; padding: 1.5rem 5%;
+      color: rgba(255,255,255,0.3); font-size: 0.8rem;
+    }
+    footer a { color: var(--accent-light); text-decoration: none; }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo-wrap { display: none; }
+      .about-grid,
+      .formation-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+    }
+  </style>
 </head>
-    
 <body>
-    <div class="overlay first"></div>
-    <div class="overlay second"></div>
-    <div class="overlay third"></div>
 
-    <header class="l-header">
-        <nav class="nav bd-grid">
-            <div>
-                <a href="#" class="nav__logo" id="logo-link" onclick="reloadWithAnimation()">
-                    <span class="logo-part1">Port</span><span class="logo-part2">folio</span>
-                </a>
-            </div>
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">Hassan <span>Ahlal</span></div>
+  <ul class="nav-links">
+    <li><a href="#home">Accueil</a></li>
+    <li><a href="#about">Profil</a></li>
+    <li><a href="#experiences">Expériences</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#formation">Formation</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
 
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link">Accueil</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">Profil</a></li>
-                    <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
-                    <li class="nav__item"><a href="#experiences" class="nav__link">Expériences</a></li>
-                    <li class="nav__item"><a href="#projects" class="nav__link">Mes Projects</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="nav__toggle" id="nav-toggle">
-                <ion-icon name="menu"></ion-icon>
-            </div>
-        </nav>
-    </header>
-  
-    <main class="l-main bd-grid">
-        <div class="home" id="home">
-            <div class="home__information">
-                <span class="home__pressent anime-text">Bonjour, Je m'appelle</span>
-                <h1 class="home__title name-animation">Hassan Ahlal</h1>
-                <span class="home__pressent anime-text">Je suis<br></span>
-                <span class="home__skill job-animation">Responsable Topographie</span>
-                
-                <div>
-                    <a href="./assets/cv/HAhlal-CV.pdf" download="HAhlal-CV.pdf" class="home__button anime-text">TÉLÉCHARGER CV</a>
-                </div>
-            </div>
-
-            <div class="home__img-container">
-                <div class="home__img-border"></div>
-                <img src="./assets/img/img1.png" alt="Portrait de Hassan Ahlal" class="home__img">
-            </div>
-
-            <div class="home__social">
-                <a href="https://www.linkedin.com/in/hassan-ahlal/" target="_blank" rel="noopener noreferrer">
-                    <ion-icon name="logo-linkedin" class="home__social-icon"></ion-icon>
-                </a>
-                <a href="https://github.com/YDaoui/YDaoui" target="_blank" rel="noopener noreferrer">
-                    <ion-icon name="logo-github" class="home__social-icon"></ion-icon>
-                </a>
-                
-                <a href="mailto:Hassan.newyear@gmail.com" target="_blank">
-                    <ion-icon name="mail-outline" class="home__social-icon"></ion-icon>
-                </a>
-                <a href="tel:+212708504254">
-                    <ion-icon name="call-outline" class="home__social-icon"></ion-icon>
-                </a>
-            </div>
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Disponible · Maroc &amp; International</div>
+      <h1 class="hero-name">Hassan<br /><span>Ahlal</span></h1>
+      <p class="hero-title"><strong>Responsable Topographe</strong> · Géomètre-Topographe</p>
+      <p class="hero-desc">
+        Spécialiste en topographie d'infrastructure avec 9 ans d'expérience sur des projets d'envergure nationale et internationale — VRD, routier, hydraulique, maritime et industriel.
+      </p>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-val">9<span>+</span></div>
+          <div class="stat-label">Ans d'expérience</div>
         </div>
-
-        <section class="section" id="about">
-            <div class="bd-grid">
-                <h4 class="section-title anime-text">Hassan Ahlal</h4> 
-                <div class="about__content">
-                    <h3>Responsable des Travaux Topographiques</h3>
-                              
-                    <div class="about__description">
-                        <p>
-                            Géomètre-topographe expérimenté avec plus de 7 ans d'expertise dans les travaux publics, le génie civil et l'aménagement du territoire. Titulaire d'un <strong>Diplôme en Topographie</strong>, j'ai développé une solide maîtrise des levés topographiques, de l'implantation d'ouvrages complexes et du contrôle des plans d'exécution.
-                        </p>
-                        <p>
-                            Mon parcours m'a permis d'évoluer de technicien topographe à responsable des travaux topographiques, en assurant la coordination d'équipes sur des chantiers de grande envergure. J'ai approfondi l'utilisation des instruments de pointe (station totale, GPS RTK, scanners 3D) et le traitement des données avec les logiciels spécialisés.
-                        </p>
-                        <p>
-                            Spécialisé dans la gestion de projets de construction, je garantis la précision métrique des implantations et le respect strict des normes techniques. Mon approche combine rigueur technique, anticipation des contraintes terrain et collaboration étroite avec les ingénieurs et conducteurs de travaux pour assurer la réussite des projets.
-                        </p>
-                    </div>
-
-                    <div class="social-badges">
-                        <a href="https://www.linkedin.com/in/hassan-ahlal/" target="_blank" rel="noopener noreferrer">
-                            <img src="https://img.shields.io/badge/LinkedIn-Profil_Professionnel-0077B5?logo=linkedin" alt="Profil LinkedIn">
-                        </a>
-                        <a href="mailto:Hassan.newyear@gmail.com">
-                            <img src="https://img.shields.io/badge/Email-Me_contacter-D14836?logo=gmail" alt="Contact Email">
-                        </a>
-                        <a href="https://github.com/YDaoui" target="_blank" rel="noopener noreferrer">
-                            <img src="https://img.shields.io/badge/GitHub-Projets_Techniques-181717?logo=github" alt="Profil GitHub">
-                        </a>
-                        
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="services">
-            <div class="bd-grid">
-                <h2 class="section-title anime-text">Mes Services</h2>
-                <div class="services__grid">
-            
-                    <div class="service-card">
-                        <div class="service-header" onclick="toggleServiceDetails('topo-details')">
-                            <ion-icon name="location-outline"></ion-icon>
-                            <h3>Levés Topographiques</h3>
-                            <ion-icon name="chevron-down-outline" class="service-arrow"></ion-icon>
-                        </div>
-                        <p class="service-brief">Levés de précision pour tous types de projets</p>
-                        
-                        <div id="topo-details" class="service-details">
-                            <ul>
-                                <li><strong>Topographie classique</strong> : Nivellement, polygonation, implantation</li>
-                                <li><strong>Géoréférencement</strong> : Coordonnées précises avec GPS RTK</li>
-                                <li><strong>Plans de situation</strong> : Plans topographiques détaillés</li>
-                                <li><strong>Relevés altimétriques</strong> : Courbes de niveau, profils en long et en travers</li>
-                            </ul>
-                            <div class="service-tech">
-                                <span>Équipements :</span> Stations totales · GPS RTK · Niveaux numériques · Scanners 3D
-                            </div>
-                        </div>
-                    </div>
-            
-                    <div class="service-card">
-                        <div class="service-header" onclick="toggleServiceDetails('implantation-details')">
-                            <ion-icon name="construct-outline"></ion-icon>
-                            <h3>Implantation de Chantier</h3>
-                            <ion-icon name="chevron-down-outline" class="service-arrow"></ion-icon>
-                        </div>
-                        <p class="service-brief">Implantation précise des ouvrages et infrastructures</p>
-                        
-                        <div id="implantation-details" class="service-details">
-                            <ul>
-                                <li><strong>Implantation d'ouvrages</strong> : Bâtiments, routes, ponts, réseaux</li>
-                                <li><strong>Calage altimétrique</strong> : Nivellement de précision</li>
-                                <li><strong>Réglage de machines</strong> : Guidage de pelles, bulldozers, finisseurs</li>
-                                <li><strong>Contrôle géométrique</strong> : Vérification des implantations</li>
-                            </ul>
-                            <div class="service-tech">
-                                <span>Techniques :</span> Implantation par coordonnées · Piquetage · Balisage · Mire
-                            </div>
-                        </div>
-                    </div>
-            
-                    <div class="service-card">
-                        <div class="service-header" onclick="toggleServiceDetails('suivi-details')">
-                            <ion-icon name="analytics-outline"></ion-icon>
-                            <h3>Suivi et Contrôle des Travaux</h3>
-                            <ion-icon name="chevron-down-outline" class="service-arrow"></ion-icon>
-                        </div>
-                        <p class="service-brief">Suivi en temps réel et contrôle qualité des travaux</p>
-                        
-                        <div id="suivi-details" class="service-details">
-                            <ul>
-                                <li><strong>Contrôle d'exécution</strong> : Vérification conforme aux plans</li>
-                                <strong>Métrologie</strong> : Mesures de déformation et tassement</li>
-                                <li><strong>Réception des travaux</strong> : Vérifications finales</li>
-                                <li><strong>Reporting</strong> : Rapports techniques détaillés</li>
-                            </ul>
-                            <div class="service-tech">
-                                <span>Outils :</span> Topométrie · Photogrammétrie · Lasergrammétrie
-                            </div>
-                        </div>
-                    </div>
-            
-                    <div class="service-card">
-                        <div class="service-header" onclick="toggleServiceDetails('etude-details')">
-                            <ion-icon name="document-text-outline"></ion-icon>
-                            <h3>Études Techniques</h3>
-                            <ion-icon name="chevron-down-outline" class="service-arrow"></ion-icon>
-                        </div>
-                        <p class="service-brief">Études préalables et assistance technique</p>
-                        
-                        <div id="etude-details" class="service-details">
-                            <ul>
-                                <li><strong>Avant-projets</strong> : Études de faisabilité topographique</li>
-                                <li><strong>Métrés</strong> : Calculs de cubatures et de surfaces</li>
-                                <li><strong>Plans d'exécution</strong> : Réalisation et vérification</li>
-                                <li><strong>Expertises</strong> : Constatations et diagnostics</li>
-                            </ul>
-                            <div class="service-tech">
-                                <span>Logiciels :</span> AutoCAD Civil 3D · Covadis · MicroStation · QGIS
-                            </div>
-                        </div>
-                    </div>
-            
-                    <div class="service-card">
-                        <div class="service-header" onclick="toggleServiceDetails('formation-details')">
-                            <ion-icon name="school-outline"></ion-icon>
-                            <h3>Formation & Conseil</h3>
-                            <ion-icon name="chevron-down-outline" class="service-arrow"></ion-icon>
-                        </div>
-                        <p class="service-brief">Transmission de compétences techniques</p>
-                        
-                        <div id="formation-details" class="service-details">
-                            <ul>
-                                <li><strong>Formation terrain</strong> : Utilisation d'équipements topographiques</li>
-                                <li><strong>Conseil technique</strong> : Optimisation des processus topographiques</li>
-                                <li><strong>Assistance logicielle</strong> : Formation aux logiciels spécialisés</li>
-                                <li><strong>Normes et réglementations</strong> : Mise à jour des pratiques</li>
-                            </ul>
-                            <div class="service-tech">
-                                <span>Domaines :</span> Topographie · Géomatique · BIM · SIG
-                            </div>
-                        </div>
-                    </div>
-            
-                    <div class="service-card">
-                        <div class="service-header" onclick="toggleServiceDetails('management-details')">
-                            <ion-icon name="people-outline"></ion-icon>
-                            <h3>Management d'Équipe</h3>
-                            <ion-icon name="chevron-down-outline" class="service-arrow"></ion-icon>
-                        </div>
-                        <p class="service-brief">Encadrement et coordination d'équipes topographiques</p>
-                        
-                        <div id="management-details" class="service-details">
-                            <ul>
-                                <li><strong>Gestion d'équipe</strong> : Planning, répartition des tâches</li>
-                                <li><strong>Coordination chantier</strong> : Interface avec les autres corps de métier</li>
-                                <li><strong>Optimisation des ressources</strong> : Matériel et personnel</li>
-                                <li><strong>Sécurité</strong> : Respect des règles de sécurité sur chantier</li>
-                            </ul>
-                            <div class="service-tech">
-                                <span>Compétences :</span> Gestion de projet · Communication · Organisation
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="experiences">
-            <div class="bd-grid">
-                <h2 class="section-title anime-text">Expériences Professionnelles</h2>
-
-                <div class="experience-container">
-                   
-                    <div class="experience-card">
-                        <div class="experience-card-header" onclick="toggleExperienceDetails('vinci-details')">
-                            <div class="company-logo">
-                                <img src="./assets/img/vinci_logo.jpeg" alt="VINCI Construction">
-                            </div>
-                            <div class="experience-title">
-                                <h3>Responsable des Travaux Topographiques</h3>
-                                <p>VINCI Construction</p>
-                            </div>
-                            <ion-icon name="chevron-down-outline" class="experience-arrow"></ion-icon>
-                        </div>
-                        
-                        <div id="vinci-details" class="experience-card-details">
-                            <div class="experience-meta">
-                                <span class="experience-date">Mars 2025 - Aujourd'hui</span>
-                                <span class="experience-location">Safi, Maroc · Sur site</span>
-                            </div>
-                            
-                            <div class="experience-description">
-                                <p>Encadrement et coordination des équipes topographiques sur des projets de grande envergure. Responsable de la qualité des levés et implantations.</p>
-                                <ul>
-                                    <li>Management d'une équipe de 5 topographes</li>
-                                    <li>Supervision des levés topographiques pour projets routiers</li>
-                                    <li>Contrôle qualité des implantations d'ouvrages d'art</li>
-                                    <li>Interface technique avec les ingénieurs projet</li>
-                                    <li>Optimisation des processus topographiques</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="tech-tags">
-                                <span class="tech-tag" data-tech="gps">
-                                    <ion-icon name="navigate-outline"></ion-icon> GPS RTK
-                                </span>
-                                <span class="tech-tag" data-tech="station">
-                                    <ion-icon name="speedometer-outline"></ion-icon> Stations Totales
-                                </span>
-                                <span class="tech-tag" data-tech="civil3d">
-                                    <ion-icon name="cube-outline"></ion-icon> Civil 3D
-                                </span>
-                                <span class="tech-tag" data-tech="management">
-                                    <ion-icon name="people-outline"></ion-icon> Management
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="experience-card">
-                        <div class="experience-card-header" onclick="toggleExperienceDetails('atner-details')">
-                            <div class="company-logo">
-                                <img src="./assets/img/atner_logo.jpeg" alt="ATNER">
-                            </div>
-                            <div class="experience-title">
-                                <h3>Technicien Géomètre Topographe</h3>
-                                <p>ATNER</p>
-                            </div>
-                            <ion-icon name="chevron-down-outline" class="experience-arrow"></ion-icon>
-                        </div>
-                        
-                        <div id="atner-details" class="experience-card-details">
-                            <div class="experience-meta">
-                                <span class="experience-date">Nov 2023 - Mars 2025 · 1 an 5 mois</span>
-                                <span class="experience-location">Azemmour, Maroc · Sur site</span>
-                            </div>
-                            
-                            <div class="experience-description">
-                                <p>Réalisation de levés topographiques pour projets d'aménagement urbain et infrastructures. Participation à des projets de voirie et réseaux divers.</p>
-                                <ul>
-                                    <li>Levés topographiques pour réseaux AEP et assainissement</li>
-                                    <li>Implantation de voiries et espaces publics</li>
-                                    <li>Calculs de cubatures pour terrassements</li>
-                                    <li>Réalisation de plans de situation détaillés</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="tech-tags">
-                                <span class="tech-tag" data-tech="topographie">
-                                    <ion-icon name="map-outline"></ion-icon> Topographie
-                                </span>
-                                <span class="tech-tag" data-tech="covadis">
-                                    <ion-icon name="desktop-outline"></ion-icon> Covadis
-                                </span>
-                                <span class="tech-tag" data-tech="nivellement">
-                                    <ion-icon name="trending-up-outline"></ion-icon> Nivellement
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-card">
-                        <div class="experience-card-header" onclick="toggleExperienceDetails('generale-details')">
-                            <div class="company-logo">
-                                <img src="./assets/img/generale_mines_logo.jpeg" alt="LA GENERALE DES MINES ET CARRIERES">
-                            </div>
-                            <div class="experience-title">
-                                <h3>Technicien Géomètre Topographe Projeteur</h3>
-                                <p>LA GENERALE DES MINES ET CARRIERES</p>
-                            </div>
-                            <ion-icon name="chevron-down-outline" class="experience-arrow"></ion-icon>
-                        </div>
-                        
-                        <div id="generale-details" class="experience-card-details">
-                            <div class="experience-meta">
-                                <span class="experience-date">Oct 2022 - Oct 2023 · 1 an 1 mois</span>
-                                <span class="experience-location">Rabat, Maroc · Sur site</span>
-                            </div>
-                            
-                            <div class="experience-description">
-                                <p>Topographie minière et carrières. Levés pour exploitation de ressources minérales et suivi des excavations.</p>
-                                <ul>
-                                    <li>Levés de carrières et mines à ciel ouvert</li>
-                                    <li>Calculs de réserves et cubatures</li>
-                                    <li>Suivi des fronts de taille</li>
-                                    <li>Établissement de profils d'exploitation</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="tech-tags">
-                                <span class="tech-tag" data-tech="mines">
-                                    <ion-icon name="hammer-outline"></ion-icon> Topographie Minière
-                                </span>
-                                <span class="tech-tag" data-tech="cubatures">
-                                    <ion-icon name="calculator-outline"></ion-icon> Cubatures
-                                </span>
-                                <span class="tech-tag" data-tech="surpac">
-                                    <ion-icon name="layers-outline"></ion-icon> Surpac
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-card">
-                        <div class="experience-card-header" onclick="toggleExperienceDetails('willemen-details')">
-                            <div class="company-logo">
-                                <img src="./assets/img/willemen_logo.jpeg" alt="Willemen Groep">
-                            </div>
-                            <div class="experience-title">
-                                <h3>Technicien Géomètre Topographe</h3>
-                                <p>Willemen Groep</p>
-                            </div>
-                            <ion-icon name="chevron-down-outline" class="experience-arrow"></ion-icon>
-                        </div>
-                        
-                        <div id="willemen-details" class="experience-card-details">
-                            <div class="experience-meta">
-                                <span class="experience-date">Fév 2022 - Oct 2022 · 9 mois</span>
-                                <span class="experience-location">Tanger, Maroc · Sur site</span>
-                            </div>
-                            
-                            <div class="experience-description">
-                                <p>Travaux topographiques pour projets de construction. Participation à des chantiers de bâtiment et génie civil.</p>
-                                <ul>
-                                    <li>Implantation de bâtiments et infrastructures</li>
-                                    <li>Contrôle des plans d'exécution</li>
-                                    <li>Relevés de façades et structures existantes</li>
-                                    <li>Assistance au métreur</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="tech-tags">
-                                <span class="tech-tag" data-tech="batiment">
-                                    <ion-icon name="business-outline"></ion-icon> Bâtiment
-                                </span>
-                                <span class="tech-tag" data-tech="autocad">
-                                    <ion-icon name="pencil-outline"></ion-icon> AutoCAD
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-card">
-                        <div class="experience-card-header" onclick="toggleExperienceDetails('kymg-details')">
-                            <div class="company-logo">
-                                <img src="./assets/img/kymg_logo.jpeg" alt="KYMG TRAVAUX">
-                            </div>
-                            <div class="experience-title">
-                                <h3>Technicien Géomètre Topographe Projeteur</h3>
-                                <p>KYMG TRAVAUX</p>
-                            </div>
-                            <ion-icon name="chevron-down-outline" class="experience-arrow"></ion-icon>
-                        </div>
-                        
-                        <div id="kymg-details" class="experience-card-details">
-                            <div class="experience-meta">
-                                <span class="experience-date">Sept 2019 - Fév 2022 · 2 ans 6 mois</span>
-                                <span class="experience-location">Béni Mellal, Maroc · Sur site</span>
-                            </div>
-                            
-                            <div class="experience-description">
-                                <p>Topographie pour travaux publics et aménagements urbains. Polyvalence sur différents types de projets.</p>
-                                <ul>
-                                    <li>Projets de voirie et réseaux divers</li>
-                                    <li>Aménagements urbains et espaces verts</li>
-                                    <li>Plans topographiques pour études préalables</li>
-                                    <li>Métrés et estimations quantitatives</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="tech-tags">
-                                <span class="tech-tag" data-tech="voirie">
-                                    <ion-icon name="road-outline"></ion-icon> Voirie
-                                </span>
-                                <span class="tech-tag" data-tech="rd">
-                                    <ion-icon name="git-network-outline"></ion-icon> Réseaux Divers
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-card">
-                        <div class="experience-card-header" onclick="toggleExperienceDetails('armacon-details')">
-                            <div class="company-logo">
-                                <img src="./assets/img/armacon_logo.jpeg" alt="ARMACON INGENIERIE">
-                            </div>
-                            <div class="experience-title">
-                                <h3>Technicien Géomètre Topographe</h3>
-                                <p>ARMACON INGENIERIE</p>
-                            </div>
-                            <ion-icon name="chevron-down-outline" class="experience-arrow"></ion-icon>
-                        </div>
-                        
-                        <div id="armacon-details" class="experience-card-details">
-                            <div class="experience-meta">
-                                <span class="experience-date">Juil 2018 - Sept 2019 · 1 an 3 mois</span>
-                                <span class="experience-location">Béni Mellal, Maroc · Hybride</span>
-                            </div>
-                            
-                            <div class="experience-description">
-                                <p>Bureau d'études techniques. Réalisation de plans topographiques et assistance aux ingénieurs.</p>
-                                <ul>
-                                    <li>Levés topographiques pour études techniques</li>
-                                    <li>Réalisation de plans d'exécution</li>
-                                    <li>Assistance aux ingénieurs d'études</li>
-                                    <li>Numérisation et mise en plan</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="tech-tags">
-                                <span class="tech-tag" data-tech="bureau">
-                                    <ion-icon name="desktop-outline"></ion-icon> Bureau d'Études
-                                </span>
-                                <span class="tech-tag" data-tech="microstation">
-                                    <ion-icon name="hardware-chip-outline"></ion-icon> MicroStation
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-card">
-                        <div class="experience-card-header" onclick="toggleExperienceDetails('dpetle-details')">
-                            <div class="company-logo">
-                                <img src="./assets/img/dpetle_logo.jpeg" alt="Direction Provinciale d'El Jadida">
-                            </div>
-                            <div class="experience-title">
-                                <h3>Stage Technician</h3>
-                                <p>DIRECTION PROVINCIALE DE L'ÉQUIPEMENT D'EL JADIDA</p>
-                            </div>
-                            <ion-icon name="chevron-down-outline" class="experience-arrow"></ion-icon>
-                        </div>
-                        
-                        <div id="dpetle-details" class="experience-card-details">
-                            <div class="experience-meta">
-                                <span class="experience-date">Juin 2017 - Oct 2017 · 5 mois</span>
-                                <span class="experience-location">El Jadida, Maroc · Hybride</span>
-                            </div>
-                            
-                            <div class="experience-description">
-                                <p>Stage de fin d'études. Initiation aux missions topographiques dans le secteur public.</p>
-                                <ul>
-                                    <li>Participation à des levés pour projets publics</li>
-                                    <li>Assistance aux géomètres experts</li>
-                                    <li>Découverte des procédures administratives</li>
-                                    <li>Réalisation de rapports techniques</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="tech-tags">
-                                <span class="tech-tag" data-tech="stage">
-                                    <ion-icon name="school-outline"></ion-icon> Stage
-                                </span>
-                                <span class="tech-tag" data-tech="public">
-                                    <ion-icon name="shield-checkmark-outline"></ion-icon> Secteur Public
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-<section class="section" id="projects">
-    <div class="bd-grid">
-        <h2 class="section-title anime-text">Mes Projets</h2>
-
-        <!-- Filtres catégories -->
-        <div class="projects__filters">
-            <button class="filter-btn active" data-filter="all">Tous</button>
-            <button class="filter-btn" data-filter="routier">Routier</button>
-            <button class="filter-btn" data-filter="batiment">Bâtiment</button>
-            <button class="filter-btn" data-filter="minier">Minier</button>
-            <button class="filter-btn" data-filter="urbain">Urbain</button>
+        <div>
+          <div class="stat-val">6<span>+</span></div>
+          <div class="stat-label">Entreprises</div>
         </div>
-
-        <!-- Grille de projets -->
-        <div class="projects__grid" id="projects-grid">
-
-            <!-- Projet 1 -->
-            <div class="project-card" data-category="routier">
-                <div class="project-card__img-wrap">
-                    <img src="./assets/img/project1.jpg" alt="Déviation RN Safi" class="project-card__img" loading="lazy">
-                    <div class="project-card__overlay">
-                        <button class="project-card__zoom" onclick="openProjectModal(0)" aria-label="Voir le projet">
-                            <ion-icon name="expand-outline"></ion-icon>
-                        </button>
-                    </div>
-                    <span class="project-card__category">Routier</span>
-                </div>
-                <div class="project-card__body">
-                    <h3 class="project-card__title">Déviation RN — Safi</h3>
-                    <p class="project-card__desc">Levés topographiques et implantation d'une déviation routière de 12 km. Profils en long/travers, cubatures.</p>
-                    <div class="project-card__tags">
-                        <span>GPS RTK</span>
-                        <span>Civil 3D</span>
-                        <span>Implantation</span>
-                    </div>
-                    <div class="project-card__meta">
-                        <span><ion-icon name="calendar-outline"></ion-icon> 2025</span>
-                        <span><ion-icon name="location-outline"></ion-icon> Safi</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet 2 -->
-            <div class="project-card" data-category="batiment">
-                <div class="project-card__img-wrap">
-                    <img src="./assets/img/project2.jpg" alt="Complexe Industriel Tanger" class="project-card__img" loading="lazy">
-                    <div class="project-card__overlay">
-                        <button class="project-card__zoom" onclick="openProjectModal(1)" aria-label="Voir le projet">
-                            <ion-icon name="expand-outline"></ion-icon>
-                        </button>
-                    </div>
-                    <span class="project-card__category">Bâtiment</span>
-                </div>
-                <div class="project-card__body">
-                    <h3 class="project-card__title">Complexe Industriel — Tanger</h3>
-                    <p class="project-card__desc">Implantation d'un complexe industriel 4 ha. Contrôle géométrique des structures, relevés de façades.</p>
-                    <div class="project-card__tags">
-                        <span>Station Totale</span>
-                        <span>AutoCAD</span>
-                        <span>Contrôle</span>
-                    </div>
-                    <div class="project-card__meta">
-                        <span><ion-icon name="calendar-outline"></ion-icon> 2022</span>
-                        <span><ion-icon name="location-outline"></ion-icon> Tanger</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet 3 -->
-            <div class="project-card" data-category="minier">
-                <div class="project-card__img-wrap">
-                    <img src="./assets/img/project3.jpg" alt="Carrière Calcaire Rabat" class="project-card__img" loading="lazy">
-                    <div class="project-card__overlay">
-                        <button class="project-card__zoom" onclick="openProjectModal(2)" aria-label="Voir le projet">
-                            <ion-icon name="expand-outline"></ion-icon>
-                        </button>
-                    </div>
-                    <span class="project-card__category">Minier</span>
-                </div>
-                <div class="project-card__body">
-                    <h3 class="project-card__title">Carrière Calcaire — Rabat</h3>
-                    <p class="project-card__desc">Topographie minière, calcul des réserves et suivi des fronts de taille. Modélisation 3D du gisement.</p>
-                    <div class="project-card__tags">
-                        <span>Surpac</span>
-                        <span>Cubatures</span>
-                        <span>3D</span>
-                    </div>
-                    <div class="project-card__meta">
-                        <span><ion-icon name="calendar-outline"></ion-icon> 2023</span>
-                        <span><ion-icon name="location-outline"></ion-icon> Rabat</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet 4 -->
-            <div class="project-card" data-category="urbain">
-                <div class="project-card__img-wrap">
-                    <img src="./assets/img/project4.jpg" alt="Réseau AEP Azemmour" class="project-card__img" loading="lazy">
-                    <div class="project-card__overlay">
-                        <button class="project-card__zoom" onclick="openProjectModal(3)" aria-label="Voir le projet">
-                            <ion-icon name="expand-outline"></ion-icon>
-                        </button>
-                    </div>
-                    <span class="project-card__category">Urbain</span>
-                </div>
-                <div class="project-card__body">
-                    <h3 class="project-card__title">Réseau AEP — Azemmour</h3>
-                    <p class="project-card__desc">Levés et implantation réseau d'eau potable sur 8 km de voiries urbaines. Plans de récolement finaux.</p>
-                    <div class="project-card__tags">
-                        <span>Covadis</span>
-                        <span>Réseaux</span>
-                        <span>Nivellement</span>
-                    </div>
-                    <div class="project-card__meta">
-                        <span><ion-icon name="calendar-outline"></ion-icon> 2024</span>
-                        <span><ion-icon name="location-outline"></ion-icon> Azemmour</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet 5 -->
-            <div class="project-card" data-category="routier">
-                <div class="project-card__img-wrap">
-                    <img src="./assets/img/project5.jpg" alt="Ouvrage d'art Béni Mellal" class="project-card__img" loading="lazy">
-                    <div class="project-card__overlay">
-                        <button class="project-card__zoom" onclick="openProjectModal(4)" aria-label="Voir le projet">
-                            <ion-icon name="expand-outline"></ion-icon>
-                        </button>
-                    </div>
-                    <span class="project-card__category">Routier</span>
-                </div>
-                <div class="project-card__body">
-                    <h3 class="project-card__title">Ouvrage d'Art — Béni Mellal</h3>
-                    <p class="project-card__desc">Implantation et contrôle géométrique d'un pont à poutres préfabriquées. Calage altimétrique de précision.</p>
-                    <div class="project-card__tags">
-                        <span>Précision</span>
-                        <span>Nivellement</span>
-                        <span>Piquetage</span>
-                    </div>
-                    <div class="project-card__meta">
-                        <span><ion-icon name="calendar-outline"></ion-icon> 2021</span>
-                        <span><ion-icon name="location-outline"></ion-icon> Béni Mellal</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet 6 -->
-            <div class="project-card" data-category="urbain">
-                <div class="project-card__img-wrap">
-                    <img src="./assets/img/project6.jpg" alt="Aménagement Place Publique" class="project-card__img" loading="lazy">
-                    <div class="project-card__overlay">
-                        <button class="project-card__zoom" onclick="openProjectModal(5)" aria-label="Voir le projet">
-                            <ion-icon name="expand-outline"></ion-icon>
-                        </button>
-                    </div>
-                    <span class="project-card__category">Urbain</span>
-                </div>
-                <div class="project-card__body">
-                    <h3 class="project-card__title">Aménagement Place Publique</h3>
-                    <p class="project-card__desc">Relevé et plan de masse d'une place publique 2 ha, suivi d'implantation des aménagements paysagers.</p>
-                    <div class="project-card__tags">
-                        <span>Plan de masse</span>
-                        <span>QGIS</span>
-                        <span>Levé</span>
-                    </div>
-                    <div class="project-card__meta">
-                        <span><ion-icon name="calendar-outline"></ion-icon> 2020</span>
-                        <span><ion-icon name="location-outline"></ion-icon> Béni Mellal</span>
-                    </div>
-                </div>
-            </div>
-
-        </div><!-- /projects__grid -->
+        <div>
+          <div class="stat-val">20<span>+</span></div>
+          <div class="stat-label">Projets réalisés</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="assets/cv/Hassan_Ahlal_CV.pdf" download class="btn-primary">
+          <i class="fa fa-download"></i> Télécharger CV
+        </a>
+        <a href="#contact" class="btn-outline">
+          <i class="fa fa-envelope"></i> Me contacter
+        </a>
+      </div>
     </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <div class="hero-photo-bg"></div>
+        <img src="assets/img/profile.png" alt="Hassan Ahlal" class="hero-photo" />
+        <div class="hero-badge">
+          <span class="big">VINCI</span>
+          Responsable<br/>Topographe
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-
-<div id="projectModal" class="project-modal" role="dialog" aria-modal="true" aria-label="Détail projet">
-    <div class="project-modal__backdrop" onclick="closeProjectModal()"></div>
-    <div class="project-modal__box">
-        <button class="project-modal__close" onclick="closeProjectModal()" aria-label="Fermer">
-            <ion-icon name="close-outline"></ion-icon>
-        </button>
-        <div class="project-modal__img-wrap">
-            <img id="modal-img" src="" alt="" class="project-modal__img">
-            <span id="modal-category" class="project-modal__badge"></span>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-eyebrow">À propos</div>
+    <h2 class="section-title">Profil Professionnel</h2>
+    <div class="section-line"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          Technicien Spécialisé Géomètre-Topographe diplômé de l'ISTA Béni Mellal (OFPPT), je dispose de <strong>9 ans d'expérience</strong> sur des projets d'infrastructure de grande envergure au Maroc.
+        </p>
+        <p>
+          Mon parcours couvre une large palette de domaines : <strong>travaux VRD, projets routiers, ouvrages hydrauliques, travaux maritimes</strong> à Tanger Med Port, et actuellement un <strong>complexe industriel OCP</strong> (Soufre Solide, Safi) avec Vinci Construction / Sogea Maroc.
+        </p>
+        <p>
+          Rigoureux, autonome et orienté résultats, je maîtrise les logiciels de pointe <strong>AutoCAD, Civil 3D, Covadis</strong> et les instruments topographiques (Station Totale, GPS RTK, Niveau de chantier). Je suis également à l'aise dans la <strong>gestion et coordination d'équipes</strong> sur chantier.
+        </p>
+        <a href="assets/cv/Hassan_Ahlal_CV.pdf" download class="btn-primary" style="margin-top:1rem; display:inline-flex;">
+          <i class="fa fa-download"></i> Télécharger mon CV
+        </a>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-card-icon">💻</div>
+          <div class="skill-card-title">Logiciels DAO/CAO</div>
+          <div class="skill-card-tags">
+            <span class="tag">AutoCAD</span>
+            <span class="tag">Civil 3D</span>
+            <span class="tag">Covadis</span>
+            <span class="tag">Autopiste</span>
+            <span class="tag">Topogen</span>
+          </div>
         </div>
-        <div class="project-modal__info">
-            <h3 id="modal-title" class="project-modal__title"></h3>
-            <p  id="modal-desc"  class="project-modal__desc"></p>
-            <div class="project-modal__details">
-                <div class="project-modal__detail">
-                    <ion-icon name="calendar-outline"></ion-icon>
-                    <span id="modal-year"></span>
-                </div>
-                <div class="project-modal__detail">
-                    <ion-icon name="location-outline"></ion-icon>
-                    <span id="modal-location"></span>
-                </div>
-            </div>
-            <div id="modal-tags" class="project-modal__tags"></div>
+        <div class="skill-card">
+          <div class="skill-card-icon">📡</div>
+          <div class="skill-card-title">Instruments</div>
+          <div class="skill-card-tags">
+            <span class="tag">Station Totale</span>
+            <span class="tag">GPS RTK</span>
+            <span class="tag">Niveau chantier</span>
+            <span class="tag">Géoradar GPR</span>
+          </div>
         </div>
+        <div class="skill-card">
+          <div class="skill-card-icon">🏗️</div>
+          <div class="skill-card-title">Domaines</div>
+          <div class="skill-card-tags">
+            <span class="tag">VRD</span>
+            <span class="tag">Routier</span>
+            <span class="tag">Hydraulique</span>
+            <span class="tag">Maritime</span>
+            <span class="tag">Industriel</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-icon">🌍</div>
+          <div class="skill-card-title">Langues</div>
+          <div class="skill-card-tags">
+            <span class="tag">Arabe</span>
+            <span class="tag">Français</span>
+            <span class="tag">Anglais</span>
+            <span class="tag">Tamazight</span>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+</section>
 
+<!-- EXPERIENCE -->
+<section id="experiences">
+  <div class="section-inner">
+    <div class="section-eyebrow">Parcours</div>
+    <h2 class="section-title">Expériences Professionnelles</h2>
+    <div class="section-line"></div>
+    <div class="exp-timeline">
 
-        <section class="section" id="contact">
-            <div class="bd-grid">
-                <h2 class="section-title anime-text">Contactez-moi</h2>
-                
-                <div class="contact__container">
-                    <div class="contact__info">
-                        <h3 class="contact__subtitle">Collaborons ensemble</h3>
-                        <p class="contact__text">Je suis disponible pour discuter de vos projets de topographie, répondre à vos questions techniques ou explorer de nouvelles opportunités professionnelles.</p>
-                        
-                        <div class="contact__details">
-                            <div class="contact__detail">
-                                <ion-icon name="mail-outline" class="contact__icon"></ion-icon>
-                                <a href="mailto:hassanahlalfx@gmail.com" class="contact__link">Hassan.newyear@gmail.com</a>
-                            </div>
-                            <div class="contact__detail">
-                                <ion-icon name="call-outline" class="contact__icon"></ion-icon>
-                                <span>+212662406544</span>
-                            </div>
-                            <div class="contact__detail">
-                                <ion-icon name="location-outline" class="contact__icon"></ion-icon>
-                                <span>Safi, Maroc (Mobile sur tout le territoire)</span>
-                            </div>
-                            <div class="contact__detail">
-                                <ion-icon name="calendar-outline" class="contact__icon"></ion-icon>
-                                <span>Disponibilité : Immédiate</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact__social">
-                            <a href="https://www.linkedin.com/in/hassan-ahlal/" class="contact__social-link" aria-label="LinkedIn">
-                                <ion-icon name="logo-linkedin"></ion-icon>
-                            </a>
-                            <a href="https://github.com/YDaoui/YDaoui" class="contact__social-link" aria-label="GitHub">
-                                <ion-icon name="logo-github"></ion-icon>
-                            </a>
-                            
-                        </div>
-                    </div>
-
-                    <form id="contactForm" class="contact__form contact-form" 
-                          action="https://formsubmit.co/Hassan.newyear@gmail.com" 
-                          method="POST"
-                          enctype="multipart/form-data">
-                        
-                        <input type="hidden" name="_subject" value="Nouveau message portfolio topographe">
-                        <input type="hidden" name="_autoresponse" value="Merci pour votre message! Je vous répondrai sous 48h.">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_next" value="https://ydaoui.github.io/?success=true">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="text" name="_honey" style="display:none">
-
-                        <div class="form__group">
-                            <input type="text" name="Nom" id="name" class="contact__input" required>
-                            <label for="name" class="form__label">Votre nom complet</label>
-                        </div>
-                        
-                        <div class="form__group">
-                            <input type="email" name="Email" id="email" class="contact__input" required>
-                            <label for="email" class="form__label">Votre email professionnel</label>
-                        </div>
-                        
-                        <div class="form__group">
-                            <input type="text" name="Objet" id="subject" class="contact__input" required>
-                            <label for="subject" class="form__label">Objet du message</label>
-                        </div>
-                        
-                        <div class="form__group">
-                            <textarea name="Message" id="message" rows="5" class="contact__input contact__textarea" required></textarea>
-                            <label for="message" class="form__label">Décrivez votre projet ou demande</label>
-                        </div>
-                        
-                        <div class="form__footer">
-                            <button type="submit" class="contact__button">
-                                <span>Envoyer le message</span>
-                                <ion-icon name="send-outline" class="button__icon"></ion-icon>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <div id="successPopup" class="success-popup">
-            <div class="popup-content">
-                <span class="close-popup-btn">&times;</span>
-                <ion-icon name="checkmark-circle" class="popup-icon"></ion-icon>
-                <h3>Message envoyé avec succès!</h3>
-                <p>Merci pour votre message. Je vous répondrai dans les plus brefs délais.</p>
-            </div>
+      <!-- VINCI -->
+      <div class="exp-item">
+        <div class="exp-dot"><img src="assets/logos/vinci.png" alt="Vinci" /></div>
+        <div class="exp-body">
+          <div class="exp-header">
+            <span class="exp-company">VINCI CONSTRUCTION — Sogea Maroc</span>
+            <span class="exp-period">03/2025 – Présent</span>
+          </div>
+          <div class="exp-role">Responsable Travaux Topographiques · Safi</div>
+          <div class="exp-project">Construction des Halls de Stockage de Soufre Solide – Complexe Industriel OCP Maroc Phosphore I (SP2M)</div>
+          <ul class="exp-missions">
+            <li>Gestion et coordination des équipes topographiques sur chantier industriel grand envergure.</li>
+            <li>Planification et exécution des levés, implantations et contrôles de précision.</li>
+            <li>Traitement et production de plans sur AutoCAD, Covadis et Civil 3D (MNT, profils, cubatures).</li>
+            <li>Suivi d'avancement et reporting technique à la maîtrise d'œuvre.</li>
+            <li>Maintenance et gestion du matériel topographique (Station Totale, GPS RTK, Niveau).</li>
+          </ul>
         </div>
-    </main>
+      </div>
 
-    <script src="./assets/js/main.js"></script>
+      <!-- ATNER -->
+      <div class="exp-item">
+        <div class="exp-dot"><img src="assets/logos/atner.png" alt="ATNER" /></div>
+        <div class="exp-body">
+          <div class="exp-header">
+            <span class="exp-company">ATNER — Atlas Énergie</span>
+            <span class="exp-period">11/2023 – 03/2025</span>
+          </div>
+          <div class="exp-role">Technicien Géomètre Topographe Projeteur · Azemmour</div>
+          <div class="exp-project">Réalisation et exploitation de la Station d'Épuration d'Azemmour – Client : RADEEJ / SRMCS</div>
+          <ul class="exp-missions">
+            <li>Relevés topographiques, implantations et suivi des travaux VRD, assainissement et hydrauliques.</li>
+            <li>Suivi des ouvrages de bâtiment et structures hydrauliques.</li>
+            <li>Calcul de métrés et cubatures ; préparation et mise à jour des plans d'exécution.</li>
+            <li>Contrôle qualité et observations terrain.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- GMC -->
+      <div class="exp-item">
+        <div class="exp-dot"><img src="assets/logos/gmc.jpeg" alt="GMC" /></div>
+        <div class="exp-body">
+          <div class="exp-header">
+            <span class="exp-company">La Générale des Mines et Carrières</span>
+            <span class="exp-period">10/2022 – 11/2023</span>
+          </div>
+          <div class="exp-role">Technicien Géomètre Topographe · Beni Mellal / Rabat</div>
+          <div class="exp-project">Travaux VRD Lotissement Menzah Al Atlas – Assainissement Palais Royal de Rabat (Quartier Ryad)</div>
+          <ul class="exp-missions">
+            <li>Relevés et implantations sur projets VRD, routiers et assainissement.</li>
+            <li>Préparation des plans d'exécution et calcul de cubatures.</li>
+            <li>Suivi d'avancement et contrôle qualité des travaux.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- WILLEMEN -->
+      <div class="exp-item">
+        <div class="exp-dot"><img src="assets/logos/willemen.png" alt="Willemen" /></div>
+        <div class="exp-body">
+          <div class="exp-header">
+            <span class="exp-company">WILLEMEN GROEP</span>
+            <span class="exp-period">02/2022 – 10/2022</span>
+          </div>
+          <div class="exp-role">Technicien Géomètre Topographe · Tanger Med Port</div>
+          <div class="exp-project">Construction des Travaux Maritimes – MED PORT Tanger El Ksar Sghir – APM Terminals</div>
+          <ul class="exp-missions">
+            <li>Relevés topographiques et implantations en environnement portuaire et maritime.</li>
+            <li>Suivi des travaux VRD et ouvrages hydrauliques ; calcul cubatures ; métrés.</li>
+            <li>Suivi des sous-traitants et coordination terrain.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- KYMG -->
+      <div class="exp-item">
+        <div class="exp-dot no-logo">KG</div>
+        <div class="exp-body">
+          <div class="exp-header">
+            <span class="exp-company">KYMG TRAVAUX</span>
+            <span class="exp-period">09/2019 – 02/2022</span>
+          </div>
+          <div class="exp-role">Technicien Géomètre Topographe & Chef d'Équipe · Beni Mellal</div>
+          <div class="exp-project">Projets routiers et VRD – Région Béni Mellal-Khénifra – Clients : JESA, AREP, ONEE, RADEET</div>
+          <ul class="exp-missions">
+            <li>Direction, coordination et planification des équipes topographiques.</li>
+            <li>Suivi des travaux de terrassement, VRD, ouvrages hydrauliques et ouvrages d'art.</li>
+            <li>Calcul cubatures, métrés, préparation des plans et réceptions topographiques.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ARMACON -->
+      <div class="exp-item">
+        <div class="exp-dot no-logo">AR</div>
+        <div class="exp-body">
+          <div class="exp-header">
+            <span class="exp-company">ARMACON INGÉNIERIE</span>
+            <span class="exp-period">10/2017 – 09/2019</span>
+          </div>
+          <div class="exp-role">Technicien Géomètre Topographe · Beni Mellal</div>
+          <div class="exp-project">Étude et suivi des pistes, travaux routiers, assainissement et VRD – Région Béni Mellal</div>
+          <ul class="exp-missions">
+            <li>Relevés topographiques, implantations et suivi des travaux routiers et VRD.</li>
+            <li>Étude des pistes ; suivi des ouvrages hydrauliques ; réceptions topographiques.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-eyebrow">Réalisations</div>
+    <h2 class="section-title">Mes Projets</h2>
+    <div class="section-line" style="background:var(--accent-light)"></div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <img src="assets/img/ocp1.jpeg" alt="OCP Safi" class="project-img" />
+        <div class="project-info">
+          <div class="project-cat">Industriel · 2025</div>
+          <div class="project-name">Complexe OCP — Halls Soufre Solide, Safi</div>
+          <div class="project-desc">Topographie complète du complexe industriel OCP Maroc Phosphore I. Implantation des halls de stockage, contrôle géométrique des structures.</div>
+          <div class="project-tags">
+            <span class="project-tag">Civil 3D</span>
+            <span class="project-tag">Implantation</span>
+            <span class="project-tag">Industriel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/img/ocp2.jpeg" alt="OCP Safi 2" class="project-img" />
+        <div class="project-info">
+          <div class="project-cat">Industriel · 2025</div>
+          <div class="project-name">SP2M — Suivi Topographique OCP</div>
+          <div class="project-desc">Levés topographiques, modélisation MNT, profils en long et en travers. Reporting technique à la maîtrise d'œuvre Vinci Construction.</div>
+          <div class="project-tags">
+            <span class="project-tag">GPS RTK</span>
+            <span class="project-tag">Covadis</span>
+            <span class="project-tag">Reporting</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/img/tangermed1.jpeg" alt="Tanger Med" class="project-img" />
+        <div class="project-info">
+          <div class="project-cat">Maritime · 2022</div>
+          <div class="project-name">MED PORT Tanger — APM Terminals</div>
+          <div class="project-desc">Travaux maritimes à Tanger El Ksar Sghir avec Willemen Groep. Relevés et implantations en environnement portuaire international.</div>
+          <div class="project-tags">
+            <span class="project-tag">Maritime</span>
+            <span class="project-tag">Station Totale</span>
+            <span class="project-tag">VRD</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/img/step_azemmour.jpg" alt="STEP Azemmour" class="project-img" />
+        <div class="project-info">
+          <div class="project-cat">Hydraulique · 2024</div>
+          <div class="project-name">Station d'Épuration — Azemmour</div>
+          <div class="project-desc">Réalisation et exploitation de la STEP d'Azemmour pour RADEEJ/SRMCS. Levés, implantations et suivi des ouvrages hydrauliques.</div>
+          <div class="project-tags">
+            <span class="project-tag">Hydraulique</span>
+            <span class="project-tag">Assainissement</span>
+            <span class="project-tag">Covadis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/img/vrd1.jpeg" alt="VRD" class="project-img" />
+        <div class="project-info">
+          <div class="project-cat">VRD · 2023</div>
+          <div class="project-name">Assainissement — Palais Royal Rabat</div>
+          <div class="project-desc">Travaux d'assainissement au Quartier Ryad – Palais Royal de Rabat. Implantation réseaux et suivi d'exécution.</div>
+          <div class="project-tags">
+            <span class="project-tag">Assainissement</span>
+            <span class="project-tag">VRD</span>
+            <span class="project-tag">Implantation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/img/conduite.jpg" alt="Conduite" class="project-img" />
+        <div class="project-info">
+          <div class="project-cat">Routier · 2021</div>
+          <div class="project-name">Projets Routiers — Béni Mellal-Khénifra</div>
+          <div class="project-desc">Construction de routes et VRD dans la région Béni Mellal-Khénifra. Clients : JESA, AREP, ONEE. Chef d'équipe topographique.</div>
+          <div class="project-tags">
+            <span class="project-tag">Routier</span>
+            <span class="project-tag">Terrassement</span>
+            <span class="project-tag">Cubatures</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FORMATION -->
+<section id="formation">
+  <div class="section-inner">
+    <div class="section-eyebrow">Académique</div>
+    <h2 class="section-title">Formation</h2>
+    <div class="section-line"></div>
+    <div class="formation-grid">
+      <div class="formation-card">
+        <div class="formation-icon"><i class="fa fa-graduation-cap"></i></div>
+        <div>
+          <div class="formation-title">Technicien Spécialisé Géomètre-Topographe</div>
+          <div class="formation-school">ISTA Béni Mellal — OFPPT</div>
+          <div class="formation-year">2016 – 2018 · Béni Mellal</div>
+          <span class="formation-mention">⭐ Mention Bien</span>
+        </div>
+      </div>
+      <div class="formation-card">
+        <div class="formation-icon"><i class="fa fa-school"></i></div>
+        <div>
+          <div class="formation-title">Baccalauréat Sciences de la Vie et de la Terre</div>
+          <div class="formation-school">Lycée El Aamria</div>
+          <div class="formation-year">2014 – 2015 · Béni Mellal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-eyebrow">Contact</div>
+    <h2 class="section-title">Travaillons Ensemble</h2>
+    <div class="section-line" style="background:var(--accent-light)"></div>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-desc">Disponible pour des opportunités au Maroc et à l'international. N'hésitez pas à me contacter pour discuter de vos projets de topographie ou pour toute opportunité professionnelle.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fa fa-envelope"></i></div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <a href="mailto:hassanahlalfx@gmail.com" class="contact-item-val">hassanahlalfx@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fa fa-phone"></i></div>
+            <div>
+              <div class="contact-item-label">Téléphone</div>
+              <a href="tel:+212779449379" class="contact-item-val">+212 779 449 379</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fa fa-map-marker-alt"></i></div>
+            <div>
+              <div class="contact-item-label">Localisation</div>
+              <span class="contact-item-val">Béni Mellal, Maroc · Mobile sur tout le territoire</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fa fa-clock"></i></div>
+            <div>
+              <div class="contact-item-label">Disponibilité</div>
+              <span class="contact-item-val">Immédiate</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-socials">
+          <a href="https://www.linkedin.com/in/hassan-ahlal/" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/hahlal" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+          <a href="mailto:hassanahlalfx@gmail.com" class="social-btn"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nom complet</label>
+              <input type="text" placeholder="Votre nom" required />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="votre@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Objet</label>
+            <input type="text" placeholder="Objet du message" />
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Décrivez votre projet ou demande..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="border:none;cursor:pointer;justify-content:center;">
+            <i class="fa fa-paper-plane"></i> Envoyer le message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Hassan Ahlal · Responsable Topographe · <a href="mailto:hassanahlalfx@gmail.com">hassanahlalfx@gmail.com</a></p>
+</footer>
+
+<script>
+  // Smooth active nav
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? '#4a9fd4' : '';
+    });
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.innerHTML = '<i class="fa fa-check"></i> Message envoyé !';
+    btn.style.background = '#2d8a4e';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fa fa-paper-plane"></i> Envoyer le message';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+
 </body>
-
 </html>
-
-
-
-
-
-
-
